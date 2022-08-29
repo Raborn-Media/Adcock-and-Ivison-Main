@@ -8,7 +8,7 @@ const Layout = ({children}) => {
     <Header />
     <main>
       <section>
-        <div className={styles.back}></div>
+        <div></div>
       </section>
     </main>
       
