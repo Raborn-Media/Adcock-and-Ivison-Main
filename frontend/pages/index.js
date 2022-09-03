@@ -4,8 +4,8 @@ import styles from '../styles/Home.module.css'
 
 export default function Home() {
   return (
-   <div>
-    Hello world
+   <div className={styles.back}>
+    <p>This is the main site</p>
    </div>
       
   )

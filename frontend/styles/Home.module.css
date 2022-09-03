@@ -1,1 +1,8 @@
-
+.back {
+background-image: url("../public/rescue_header.jpg");
+background-size: cover;
+height: 750px;
+position: relative;
+bottom: 14rem;
+opacity:.8
+}
