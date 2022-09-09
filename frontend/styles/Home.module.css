@@ -58,3 +58,8 @@
 .btmbar p {
   margin: 0;
 }
+
+.AI {
+  position: relative; 
+  z-index: 3;
+}
