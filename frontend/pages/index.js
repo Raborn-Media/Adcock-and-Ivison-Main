@@ -104,8 +104,8 @@ export default function Home() {
           <p>Employment Claims</p>
         </div>
       </div>
-      <div>
-        
+      <div className={styles.AI}>
+       <Image src="/Adcock_logo_Mark.svg" alt="AI Logo" width={200} height={150}/>
       </div>
     </>
   );
