@@ -4,12 +4,12 @@
   align-items: center;
   justify-content: space-between;
   position: fixed;
-  z-index: 99;
+  z-index: 1;
   width: 100%;
   max-width: 100%;
   padding-left: 2rem;
   padding-right: 2rem;
-}
+  }
 
 .header ul {
   display: flex;
@@ -26,8 +26,7 @@
 
 .image {
   width: 50%;
+  opacity: 0.9;
 }
 
-.text {
-  color: #fff;
-}
+
