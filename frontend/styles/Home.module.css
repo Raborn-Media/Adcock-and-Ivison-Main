@@ -59,7 +59,92 @@
   margin: 0;
 }
 
+.svg {
+  width: 24rem;
+}
+
+.owners {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3rem;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
 .AI {
-  position: relative; 
+  position: relative;
   z-index: 3;
+  display: flex;
+  left: 24rem;
+  margin-top: 3rem;
+}
+
+.article {
+  color: #002d62;
+  margin-left: 4rem;
+}
+
+.para {
+  width: 35%;
+}
+
+.bp {
+  width: 28rem;
+  background-color: #979794;
+  border-radius: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.person {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 1rem;
+  text-align: center;
+}
+
+.help {
+  width: 50%;
+  margin-left: 24rem;
+  margin-top: 5rem;
+  color: #002d62;
+}
+
+.capsec {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.capitol {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 18%;
+}
+
+.prosec {
+  margin-right: 15%;
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  width: 65%;
+  background-color: #002d62;
+  border-radius: 25px;
+  color: #fff;
+  padding-left: 1rem;
+  padding-bottom: 2rem;
+  padding-top: 1rem;
+  margin: 0;
+}
+
+.learn {
+  text-decoration: underline;
+  margin-left: 2.5rem;
+  margin-bottom: -1rem;
 }
