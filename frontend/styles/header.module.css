@@ -9,24 +9,48 @@
   max-width: 100%;
   padding-left: 2rem;
   padding-right: 2rem;
+  
   }
 
 .header ul {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   list-style: none;
   width: 50%;
+  margin-top: 4rem;
+  margin-right: 5%;
 }
 
 .header li {
-  padding: 1rem;
+  padding-left: 2rem;
   color: #fff;
 }
 
 .image {
   width: 50%;
   opacity: 0.9;
+}
+
+.topright {
+  display:flex;
+  color: #fff;
+  width: 50%;
+  flex-direction: row;
+  position: absolute;
+  top: 0;
+  right: 6.5%;
+  justify-content: flex-end;
+}
+
+.toprightinfo {
+  display: flex;
+  padding-left: 6rem;
+}
+
+.toprightsvg {
+  position:relative;
+  top: 10px;
 }
 
 

@@ -1,7 +1,19 @@
 .back {
-  background-image: url("../public/rescue_header.jpg");
   background-size: 140%;
   background-position: left 80% top 12%;
+  background-repeat: no-repeat;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  height: 60%;
+  box-shadow: inset 2000px 2000px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+.back2 {
+  background-size: 100%;
+  background-position: left 80% top 22%;
   background-repeat: no-repeat;
   width: 100%;
   display: flex;

@@ -1,9 +1,13 @@
-import React from 'react'
+import YourHead from "../components/YourHead";
+import Nav from "../components/Nav";
 
 const your = () => {
   return (
-    <div>your</div>
-  )
-}
+    <>
+      <YourHead />
+      <Nav />
+    </>
+  );
+};
 
-export default your
+export default your;
