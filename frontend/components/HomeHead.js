@@ -3,7 +3,7 @@ import styles from "../styles/Home.module.css";
 
 const HomeHead = () => {
   return (
-    <div className={styles.back}>
+    <div style={{backgroundImage: "url('/rescue_header.jpg')"}} className={styles.back}>
       <div className={styles.text}>
         <div>
           <h1>"Experienced,</h1>

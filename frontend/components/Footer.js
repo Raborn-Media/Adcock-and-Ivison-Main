@@ -373,34 +373,25 @@ const Footer = () => {
           </div>
         </div>
         <div className={styles.footerright}>
-        <div>
-          <p
-            style={{
-              color: "#81817b",
-            }}
-          >
-            LATEST CASE STUDIES
-          </p>
-        </div>
-        <div>
-          <ul>
-            <li>
-              <Link href="/home">HOME</Link>
-            </li>
-            <li>
-              <Link href="/your">YOUR ATTORNEYS</Link>
-            </li>
-            <li>
-              <Link href="/mycase">YOUR CASE</Link>
-            </li>
-            <li>
-              <Link href="/news">IN THE NEWS</Link>
-            </li>
-            <li>
-              <Link href="/talk">TALK TO US</Link>
-            </li>
-          </ul>
-        </div>
+          <div>
+            <p
+              style={{
+                color: "#81817b",
+                margin: "0",
+              }}
+            >
+              LATEST CASE STUDIES
+            </p>
+          </div>
+          <div>
+            <ul>
+              <li>CONSTRUCTION ACCIDENTS</li>
+              <li>OILFIELD ACCIDENTS</li>
+              <li>PHARMACEUTICAL CASES</li>
+              <li>INSURANCE LAW</li>
+              <li>BUSINESS V. BUSINESS</li>
+            </ul>
+          </div>
         </div>
       </div>
     </>
