@@ -4,9 +4,10 @@ import styles from "../styles/Home.module.css";
 const Win = () => {
   return (
     <>
-      <div className={styles.AI}>
+      <div className={styles.ai}>
         <div className={styles.svg}>
           <svg
+            width="22rem"
             version="1.1"
             id="Isolation_Mode"
             xmlns="http://www.w3.org/2000/svg"

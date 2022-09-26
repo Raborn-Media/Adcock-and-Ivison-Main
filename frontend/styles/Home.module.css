@@ -13,7 +13,20 @@
 
 .back2 {
   background-size: 100%;
-  background-position: left 80% top 22%;
+  background-position: left 80% top 48%;
+  background-repeat: no-repeat;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  height: 60%;
+  box-shadow: inset 2000px 2000px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+.back3 {
+  background-size: 100%;
+  background-position: left 80% top 80%;
   background-repeat: no-repeat;
   width: 100%;
   display: flex;
@@ -72,7 +85,10 @@
 }
 
 .svg {
-  width: 24rem;
+  width: 38%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .owners {
@@ -83,21 +99,30 @@
   margin-right: 20%;
 }
 
-.AI {
-  position: relative;
-  z-index: 3;
+.ai {
   display: flex;
-  left: 24rem;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
   margin-top: 3rem;
+  margin-bottom: 4rem;
 }
 
 .article {
   color: #002d62;
-  margin-left: 4rem;
+  width: 58%;
+}
+
+.article h1 {
+  font-size: 3rem;
+}
+
+.article p {
+  font-size: 1.5rem;
 }
 
 .para {
-  width: 35%;
+  width: 70%;
 }
 
 .bp {
@@ -119,44 +144,68 @@
 }
 
 .help {
-  width: 50%;
-  margin-left: 24rem;
+  width: 100%;
   margin-top: 5rem;
+  margin-bottom: 2rem;
   color: #002d62;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: left;
+}
+
+.para2 {
+  width: 50%;
+}
+
+.para2 h1 {
+  font-size: 3rem;
+}
+
+.para2 p {
+  font-size: 1.5rem;
 }
 
 .capsec {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
+  margin-bottom: 4rem;
 }
 
 .capitol {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
-  margin-left: 18%;
+  width: 38%;
 }
 
 .prosec {
-  margin-right: 15%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 58%;
 }
 
 .product {
   display: flex;
   flex-direction: column;
-  width: 65%;
+  width: 70%;
   background-color: #002d62;
   border-radius: 25px;
   color: #fff;
-  padding-left: 1rem;
-  padding-bottom: 2rem;
-  padding-top: 1rem;
+  padding: 1rem;
   margin: 0;
+  font-size: 1.2rem;
+}
+
+.product h4 {
+  font-size: 1.5rem;
 }
 
 .learn {
   text-decoration: underline;
   margin-left: 2.5rem;
-  margin-bottom: -1rem;
 }

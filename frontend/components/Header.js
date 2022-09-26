@@ -1,10 +1,31 @@
 import Link from "next/link";
 import Image from "next/image";
 import styles from "../styles/Header.module.css";
+import { useState, useEffect } from "react";
+
 const Header = () => {
+
+  const [showDropNav, setShowDropNav] = useState(false)
+
+  const [headClass, setHeadClass] = useState(styles.header)
+  const [navClass, setNavClass] = useState(styles.navList)
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (window.pageYOffset > 300) {
+        setHeadClass(styles.headerGrey)
+        setNavClass(styles.navListGrey)
+      }
+      else {
+        setHeadClass(styles.header)
+        setNavClass(styles.navList)
+      }
+    })
+  }, [])
+
   return (
     <>
-      <div className={styles.header}>
+      <div className={headClass}>
         <div className={styles.image}>
           <Image
             src="/Adcock_logo.svg"
@@ -59,8 +80,17 @@ const Header = () => {
           <li>
             <Link href="/your">YOUR ATTORNEYS</Link>
           </li>
-          <li>
-            <Link href="/mycase">YOUR CASE</Link>
+          <li style={{position: 'relative', cursor: 'pointer'}} onClick={() => setShowDropNav(!showDropNav)}>
+            YOUR CASE &darr;
+            <div className={styles.navDropdown} style={{display: showDropNav?'':'none'}}>
+              <ul className={navClass}>
+                <li>Employment Claims</li>
+                <li>Personal Injury</li>
+                <li>Medical</li>
+                <li>Business</li>
+                <li>Insurance</li>
+              </ul>
+            </div>
           </li>
           <li>
             <Link href="/news">IN THE NEWS</Link>
