@@ -10,8 +10,8 @@ const YourHead = () => {
           <p>Aggressive and Effective Trial Attorneys"</p>
         </div>
         <div style={{ marginTop: "2rem" }}>
-          <p>Workplace</p>
-          <p>Learn More</p>
+          <p>Attorneys</p>
+          
         </div>
       </div>
       <div style={{ margin: "0" }}>

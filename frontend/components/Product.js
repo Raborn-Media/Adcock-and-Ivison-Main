@@ -6,7 +6,7 @@ const Product = () => {
     <div className={styles.capsec}>
       <div className={styles.capitol}>
         <svg
-          width="15rem"
+          width="16rem"
           version="1.1"
           id="Layer_1"
           xmlns="http://www.w3.org/2000/svg"
@@ -55,7 +55,7 @@ const Product = () => {
       </div>
       <div className={styles.prosec}>
         <div className={styles.product}>
-          <p>Product Liability</p>
+          <h4 style={{margin: '0'}}>Product Liability</h4>
           <ul>
             <li>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

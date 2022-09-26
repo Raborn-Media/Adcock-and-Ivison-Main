@@ -3,6 +3,7 @@
   background-color: #979794;
   display: flex;
   height: 21rem;
+  overflow: hidden;
 }
 
 .footernav li {

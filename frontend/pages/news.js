@@ -1,8 +1,15 @@
-import React from 'react'
+import NewsHead from "../components/NewsHead";
+import Nav from "../components/Nav";
+import styles from "../styles/your.module.css";
+import Image from "next/image";
 
 const news = () => {
   return (
-    <div>news</div>
+    <>
+    <NewsHead />
+      <Nav />
+      <div></div>
+    </>
   )
 }
 
