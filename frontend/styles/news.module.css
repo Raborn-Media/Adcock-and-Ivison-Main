@@ -1,0 +1,41 @@
+.news {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+  color: #002d62;
+}
+
+.newspara {
+  width: 50%;
+  margin-left: 3rem;
+  text-align: justify;
+}
+
+.img {
+  float: left;
+  margin: 1rem;
+  margin-right: 2rem;
+}
+
+.spacer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 77%;
+}
+
+.attorneybar {
+  background-color: #979794;
+  width: 52%;
+  display: flex;
+  color: #fff;
+  font-size: 2rem;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  padding: 1rem;
+  margin-top: 6rem;
+}
+
+.attorneybar p {
+  margin: 0;
+}

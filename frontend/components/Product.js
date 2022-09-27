@@ -14,7 +14,7 @@ const Product = () => {
           x="0px"
           y="0px"
           viewBox="0 0 199 227"
-          enable-background="new 0 0 199 227"
+          enableBackground="new 0 0 199 227"
           space="preserve"
           fill="#979794"
         >

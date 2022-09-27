@@ -54,7 +54,7 @@ const Header = () => {
                 x="0px"
                 y="0px"
                 viewBox="0 0 102.7 102.9"
-                enable-background="new 0 0 102.7 102.9"
+                enableBackground="new 0 0 102.7 102.9"
                 space="preserve"
                 fill="#fff"
                 width={28}
@@ -78,13 +78,21 @@ const Header = () => {
             <Link href="/">HOME</Link>
           </li>
           <li>
-            <Link href="/your">YOUR ATTORNEYS</Link>
+            <Link href="/attorneys">YOUR ATTORNEYS</Link>
           </li>
-          <li style={{position: 'relative', cursor: 'pointer'}} onClick={() => setShowDropNav(!showDropNav)}>
+          <li
+            style={{ position: "relative", cursor: "pointer" }}
+            onClick={() => setShowDropNav(!showDropNav)}
+          >
             YOUR CASE &darr;
-            <div className={styles.navDropdown} style={{display: showDropNav?'':'none'}}>
+            <div
+              className={styles.navDropdown}
+              style={{ display: showDropNav ? "" : "none" }}
+            >
               <ul className={navClass}>
-                <li>Employment Claims</li>
+                <Link href={'/claims'}>
+                  <li>Employment Claims</li>
+                </Link>
                 <li>Personal Injury</li>
                 <li>Medical</li>
                 <li>Business</li>

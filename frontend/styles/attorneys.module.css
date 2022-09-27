@@ -1,0 +1,79 @@
+.coliseum {
+  display: flex;
+  margin-top: 4rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.phoneemail {
+  display: flex;
+  flex-direction: column;
+}
+
+.peclass {
+  display: flex;
+  flex-direction: column;
+}
+
+.phone {
+  display: flex;
+  color: #002d62;
+}
+
+.email {
+  display: flex;
+  color: #002d62;
+}
+
+.YApara {
+  display: flex;
+  width: 40%;
+  color: #002d62;
+  flex-direction: column;
+  margin-left: 2rem;
+}
+
+.phone2 {
+  margin-left: 0.5rem;
+}
+
+.email2 {
+  margin-left: 0.5rem;
+}
+
+.spacer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 77%;
+}
+
+.attorneybar {
+  background-color: #979794;
+  width: 52%;
+  display: flex;
+  color: #fff;
+  font-size: 2rem;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  padding: 1rem;
+  margin-top: 6rem;
+}
+
+.attorneybar p {
+  margin: 0;
+}
+
+.peclass2 {
+  display: flex;
+  color: #002d62;
+  flex-direction: column;
+  margin-left: 2rem;
+}
+
+.seals {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}

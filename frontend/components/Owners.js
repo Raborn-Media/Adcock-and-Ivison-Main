@@ -15,7 +15,7 @@ const Owners = () => {
             x="0px"
             y="0px"
             viewBox="0 0 82 82"
-            enable-background="new 0 0 82 82"
+            enableBackground="new 0 0 82 82"
             space="preserve"
             fill="#fff"
           >
@@ -48,7 +48,7 @@ const Owners = () => {
             x="0px"
             y="0px"
             viewBox="0 0 82 82"
-            enable-background="new 0 0 82 82"
+            enableBackground="new 0 0 82 82"
             space="preserve"
             fill="#fff"
           >
