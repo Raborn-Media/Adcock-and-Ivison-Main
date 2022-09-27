@@ -24,10 +24,10 @@ const Footer = () => {
               <Link href="/home">HOME</Link>
             </li>
             <li>
-              <Link href="/your">YOUR ATTORNEYS</Link>
+              <Link href="/attorneys">YOUR ATTORNEYS</Link>
             </li>
             <li>
-              <Link href="/mycase">YOUR CASE</Link>
+              <Link href="/claims">YOUR CASE</Link>
             </li>
             <li>
               <Link href="/news">IN THE NEWS</Link>
@@ -47,7 +47,7 @@ const Footer = () => {
               x="0px"
               y="0px"
               viewBox="0 0 112.7 84.5"
-              enable-background="new 0 0 112.7 84.5"
+              enableBackground="new 0 0 112.7 84.5"
               space="preserve"
               width="8rem"
               fill="#81817b"
@@ -97,7 +97,7 @@ const Footer = () => {
                 x="0px"
                 y="0px"
                 viewBox="0 0 79 66.5"
-                enable-background="new 0 0 79 66.5"
+                enableBackground="new 0 0 79 66.5"
                 space="preserve"
                 width="6.5rem"
               >

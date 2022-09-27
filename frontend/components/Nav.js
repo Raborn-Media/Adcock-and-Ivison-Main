@@ -1,19 +1,22 @@
 import React from "react";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
+import Link from 'next/link'
 
 const Nav = () => {
   return (
     <div className={styles.nav}>
-      <div className={styles.btmbar}>
-        <Image
-          src="/employment_icon.svg"
-          alt="Employment Logo"
-          width={200}
-          height={100}
-        />
-        <p>Employment Claims</p>
-      </div>
+      <Link href={'/claims'}>
+        <div className={styles.btmbar}>
+          <Image
+            src="/employment_icon.svg"
+            alt="Employment Logo"
+            width={200}
+            height={100}
+          />
+          <p>Employment Claims</p>
+        </div>
+      </Link>
 
       <div className={styles.btmbar}>
         <Image

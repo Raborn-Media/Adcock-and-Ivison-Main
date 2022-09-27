@@ -25,7 +25,7 @@ const NewsHead = () => {
           x="0px"
           y="0px"
           viewBox="0 0 97.1 66.1"
-          enable-background="new 0 0 97.1 66.1"
+          enableBackground="new 0 0 97.1 66.1"
           space="preserve"
           fill="#fff"
           width="24rem"
