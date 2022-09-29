@@ -5,60 +5,43 @@ import Link from 'next/link'
 
 const Nav = () => {
   return (
-    <div className={styles.nav}>
-      <Link href={'/claims'}>
-        <div className={styles.btmbar}>
-          <Image
-            src="/employment_icon.svg"
-            alt="Employment Logo"
-            width={200}
-            height={100}
-          />
-          <p>Employment Claims</p>
-        </div>
-      </Link>
+		<div className={styles.nav}>
+			<Link href={'/claims'}>
+				<div className={styles.btmbar}>
+					<Image src='/employment_icon.svg' alt='Employment Logo' width={200} height={100} />
+					<p>Employment Claims</p>
+				</div>
+			</Link>
 
-      <div className={styles.btmbar}>
-        <Image
-          src="/personal_icon.svg"
-          alt="Employment Logo"
-          width={200}
-          height={100}
-        />
-        <p>Personal Injury</p>
-      </div>
+			<Link href={'/injury'}>
+				<div className={styles.btmbar}>
+					<Image src='/personal_icon.svg' alt='Employment Logo' width={200} height={100} />
+					<p>Personal Injury</p>
+				</div>
+			</Link>
 
-      <div className={styles.btmbar}>
-        <Image
-          src="/medical_icon.svg"
-          alt="Employment Logo"
-          width={200}
-          height={100}
-        />
-        <p>Medical</p>
-      </div>
+			<Link href={'/medical'}>
+				<div className={styles.btmbar}>
+					<Image src='/medical_icon.svg' alt='Employment Logo' width={200} height={100} />
+					<p>Medical</p>
+				</div>
+			</Link>
 
-      <div className={styles.btmbar}>
-        <Image
-          src="/business_icon.svg"
-          alt="Employment Logo"
-          width={200}
-          height={100}
-        />
-        <p>Business</p>
-      </div>
+			<Link href={'/business'}>
+				<div className={styles.btmbar}>
+					<Image src='/business_icon.svg' alt='Employment Logo' width={200} height={100} />
+					<p>Business</p>
+				</div>
+			</Link>
 
-      <div className={styles.btmbar}>
-        <Image
-          src="/insurance_icon.svg"
-          alt="Employment Logo"
-          width={200}
-          height={100}
-        />
-        <p>Insurance</p>
-      </div>
-    </div>
-  );
+			<Link href={'/insurance'}>
+				<div className={styles.btmbar}>
+					<Image src='/insurance_icon.svg' alt='Employment Logo' width={200} height={100} />
+					<p>Insurance</p>
+				</div>
+			</Link>
+		</div>
+	)
 };
 
 export default Nav;
