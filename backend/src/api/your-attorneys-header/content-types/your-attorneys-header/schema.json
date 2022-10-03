@@ -1,0 +1,27 @@
+{
+  "kind": "singleType",
+  "collectionName": "your_attorneys_headers",
+  "info": {
+    "singularName": "your-attorneys-header",
+    "pluralName": "your-attorneys-headers",
+    "displayName": "Your Attorneys - Header"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "largeText": {
+      "type": "richtext",
+      "required": true
+    },
+    "smallText": {
+      "type": "richtext",
+      "required": true
+    },
+    "subHead": {
+      "type": "richtext",
+      "required": true
+    }
+  }
+}

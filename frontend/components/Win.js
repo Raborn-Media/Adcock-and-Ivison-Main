@@ -1,7 +1,29 @@
 import React from "react";
 import styles from "../styles/Home.module.css";
+import {config} from "./Constants"
+import { useEffect, useState } from "react";
+import ReactMarkdown from "react-markdown"
+ 
+const URL = config.url
 
 const Win = () => {
+  const [wintext, setwintext] = useState(null)
+  const [loadwintext, setloadwintext] = useState(true)
+  useEffect(() => {
+    fetch(`${URL}/why-we-win`)
+      .then((res) => res.json())
+      .then((wintext) => {
+        setwintext(wintext)
+        setloadwintext(false)
+      })
+  }, [])
+
+  if(loadwintext){
+    return(
+      <div>loading...</div>
+    )
+  }
+  
   return (
     <>
       <div className={styles.ai}>
@@ -41,16 +63,10 @@ const Win = () => {
           </svg>
         </div>
         <div className={styles.article}>
-          <h1 style={{ margin: "0" }}>Why We Win</h1>
+          <h1 style={{ margin: "0" }}>{wintext.data.attributes.title}</h1>
           <div className={styles.para}>
             <p style={{ margin: "0" }}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
+              <ReactMarkdown>{wintext.data.attributes.content}</ReactMarkdown>
             </p>
           </div>
         </div>

@@ -1,0 +1,23 @@
+{
+  "kind": "singleType",
+  "collectionName": "why_we_wins",
+  "info": {
+    "singularName": "why-we-win",
+    "pluralName": "why-we-wins",
+    "displayName": "Home Page-Why We Win"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "content": {
+      "type": "richtext",
+      "required": true
+    }
+  }
+}

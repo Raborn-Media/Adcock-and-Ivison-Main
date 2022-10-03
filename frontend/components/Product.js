@@ -1,7 +1,26 @@
 import React from "react";
 import styles from "../styles/Home.module.css";
+import { config } from "../components/Constants";
+import { useEffect, useState } from "react";
+import ReactMarkdown from "react-markdown";
+
+const URL = config.url;
 
 const Product = () => {
+  const [helpboxtext, sethelpboxtext] = useState(null);
+  const [loadhelpboxtext, setloadhelpboxtext] = useState(true);
+  useEffect(() => {
+    fetch(`${URL}/help-box`)
+      .then((res) => res.json())
+      .then((helpboxtext) => {
+        sethelpboxtext(helpboxtext);
+        setloadhelpboxtext(false);
+      });
+  }, []);
+
+  if (loadhelpboxtext) {
+    return <div>loading...</div>;
+  }
   return (
     <div className={styles.capsec}>
       <div className={styles.capitol}>
@@ -55,17 +74,8 @@ const Product = () => {
       </div>
       <div className={styles.prosec}>
         <div className={styles.product}>
-          <h4 style={{margin: '0'}}>Product Liability</h4>
-          <ul>
-            <li>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-            </li>
-            <li>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-            </li>
-          </ul>
+          <h4 style={{ margin: "0" }}>{helpboxtext.data.attributes.title}</h4>
+          <ReactMarkdown>{helpboxtext.data.attributes.content}</ReactMarkdown>
           <div className={styles.learn}>
             <p>Learn More</p>
           </div>

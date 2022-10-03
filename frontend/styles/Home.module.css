@@ -11,30 +11,16 @@
   position: relative;
 }
 
-.back2 {
-  background-size: 100%;
-  background-position: left 80% top 48%;
-  background-repeat: no-repeat;
-  width: 100%;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-end;
-  height: 60%;
-  box-shadow: inset 2000px 2000px rgba(0, 0, 0, 0.5);
-  position: relative;
+@media screen and (min-width: 519px) and (max-width: 926px) {
+  .back {
+    background-size: 250%;
+  }
 }
 
-.back3 {
-  background-size: 100%;
-  background-position: left 80% top 80%;
-  background-repeat: no-repeat;
-  width: 100%;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-end;
-  height: 60%;
-  box-shadow: inset 2000px 2000px rgba(0, 0, 0, 0.5);
-  position: relative;
+@media screen and (max-width: 518px) {
+  .back {
+    background-size: 350%;
+  }
 }
 
 .text {
@@ -60,14 +46,49 @@
   margin: 0;
 }
 
+@media screen and (max-width: 1029px) {
+  .text h1 {
+    font-size: 3rem;
+  }
+
+  .text p:nth-of-type(1) {
+    font-size: 1.5rem;
+  }
+
+  .text p:nth-of-type(2) {
+    font-size: 1rem;
+  }
+  .text {
+    margin-left: 2rem;
+  }
+  .aiLogo {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+  .back {
+    position: relative;
+  }
+}
+
+@media screen and (max-width: 764px) {
+  .aiLogo {
+    opacity: 0.2;
+  }
+  .text {
+    margin-left: 1rem;
+  }
+}
+
 .nav {
   width: 100%;
   background-color: #979794;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: flex-start;
   flex-direction: row;
   padding: 1rem;
+  flex-wrap: wrap;
 }
 
 .btmbar {
@@ -78,9 +99,16 @@
   align-items: center;
   flex-direction: column;
   text-align: center;
-  width: 19%;
+  width: 357px;
   cursor: pointer;
 }
+
+@media screen and (max-width: 1784px) {
+  .btmbar {
+    margin-top: 2rem;
+  }
+}
+
 .btmbar p {
   margin: 0;
 }
@@ -98,32 +126,6 @@
   margin-top: 3rem;
   margin-left: 20%;
   margin-right: 20%;
-}
-
-.ai {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  margin-top: 3rem;
-  margin-bottom: 4rem;
-}
-
-.article {
-  color: #002d62;
-  width: 58%;
-}
-
-.article h1 {
-  font-size: 3rem;
-}
-
-.article p {
-  font-size: 1.5rem;
-}
-
-.para {
-  width: 70%;
 }
 
 .bp {
@@ -168,6 +170,82 @@
   font-size: 1.5rem;
 }
 
+@media screen and (min-width: 1135px) and (max-width: 1524px) {
+  .owners {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+}
+
+@media screen and (max-width: 1134px) {
+  .owners {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .bp {
+    margin-bottom: 2rem;
+  }
+  .help {
+    text-align: center;
+  }
+}
+@media screen and (max-width: 884px) {
+  .para2 {
+    width: 90%;
+  }
+}
+@media screen and (max-width: 484px) {
+  .bp {
+    width: 90%;
+  }
+  .owners {
+    margin: 0;
+  }
+}
+
+.ai {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 3rem;
+  margin-bottom: 4rem;
+}
+
+.article {
+  color: #002d62;
+  width: 58%;
+}
+
+.article h1 {
+  font-size: 3rem;
+}
+
+.article p {
+  font-size: 1.5rem;
+}
+
+.para {
+  width: 70%;
+}
+
+@media screen and (max-width: 899px) {
+  .ai {
+    flex-direction: column;
+  }
+  .article {
+    width: 95%;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  .para {
+    width: 100%;
+  }
+}
+
 .capsec {
   display: flex;
   justify-content: space-between;
@@ -200,6 +278,39 @@
   padding: 1rem;
   margin: 0;
   font-size: 1.2rem;
+}
+
+.product li {
+  margin-bottom: 1.5rem;
+}
+
+@media screen and (min-width: 1109px) and (max-width: 1399px) {
+  .product {
+    width: 90%;
+  }
+  .prosec {
+    width: 60%;
+  }
+  .capitol {
+    width: 30%;
+  }
+}
+@media screen and (max-width: 1109px) {
+  .product {
+    width: 90%;
+  }
+  .prosec {
+    width: 90%;
+    justify-content: center;
+  }
+  .capitol {
+    width: 100%;
+    justify-content: center;
+  }
+  .capsec {
+    flex-direction: column;
+    justify-content: center;
+  }
 }
 
 .product h4 {

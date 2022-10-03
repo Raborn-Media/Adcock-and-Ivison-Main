@@ -2,8 +2,46 @@ import YourHead from "../components/YourHead";
 import Nav from "../components/Nav";
 import styles from "../styles/attorneys.module.css";
 import Image from "next/image";
+import {config} from "../components/Constants"
+import { useEffect, useState } from "react";
+import ReactMarkdown from "react-markdown"
+
+const URL = config.url
 
 const attorneys = () => {
+  const [attorneytext, setattorneytext] = useState(null)
+  const [loadattorneytext, setloadattorneytext] = useState(true)
+  useEffect(() => {
+    fetch(`${URL}/attorney-page-your-attorney`)
+      .then((res) => res.json())
+      .then((attorneytext) => {
+        setattorneytext(attorneytext)
+        setloadattorneytext(false)
+      })
+  }, [])
+
+  const [attorneys, setattorneys] = useState(null)
+  const [loadattorneys, setloadattorneys] = useState(true)
+  useEffect(() => {
+    fetch(`${URL}/attorneys?populate=*&sort=id`)
+      .then((res) => res.json())
+      .then((attorneys) => {
+        setattorneys(attorneys)
+        setloadattorneys(false)
+      })
+  }, [])
+
+  if(loadattorneys){
+    return(
+      <div>loading...</div>
+    )
+  }
+
+  if(loadattorneytext){
+    return(
+      <div>loading...</div>
+    )
+  }
   return (
     <>
       <YourHead />
@@ -92,22 +130,9 @@ const attorneys = () => {
           </div>
         </div>
         <div className={styles.YApara}>
-          <h1>Your Attorneys</h1>
+          <h1>{attorneytext.data.attributes.title}</h1>
           <p style={{ margin: "0" }}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.<br></br>
-            <br></br> Ut enim ad minim veniam, quis nostrud exercitation ullamco
-            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-            dolor in reprehenderit in voluptate velit esse cillum dolore eu
-            fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est
-            laborum. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum. Duis aute
-            irure dolor in reprehenderit in voluptate velit esse cillum dolore
-            eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est
-            laborum. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+          <ReactMarkdown>{attorneytext.data.attributes.content}</ReactMarkdown>
           </p>
         </div>
       </div>
@@ -143,30 +168,12 @@ const attorneys = () => {
           </div>
         </div>
       </div>
-      <div>
+      {attorneys.data.map((attorney) => {
+        return (
+          <div>
         <div className={styles.coliseum}>
           <div className={styles.phoneemail}>
-            <svg
-              version="1.1"
-              id="Isolation_Mode"
-              xmlns="http://www.w3.org/2000/svg"
-              xlink="http://www.w3.org/1999/xlink"
-              x="0px"
-              y="0px"
-              viewBox="0 0 82 82"
-              enableBackground="new 0 0 82 82"
-              space="preserve"
-              width="200"
-              fill="#002d62"
-            >
-              <g>
-                <circle cx="38.1" cy="19.7" r="15.8" />
-                <path
-                  d="M38.1,40.9c-17.3,0-31.4,8.6-31.4,19.2c0,0.1,0,0.2,0,0.3c7.6,8.8,18.8,14.4,31.3,14.4c12.5,0,23.7-5.6,31.3-14.4
-		c0-0.1,0-0.2,0-0.3C69.5,49.5,55.5,40.9,38.1,40.9z"
-                />
-              </g>
-            </svg>
+            <Image src={attorney.attributes.headshot.data.attributes.url} width={200} height={200} />
 
             <div className={styles.peclass2}>
               <div className={styles.phone}>
@@ -193,7 +200,7 @@ const attorneys = () => {
                   </g>
                 </svg>
                 <div className={styles.phone}>
-                  <p>601.898.9887</p>
+                  <a href={`tel:${attorney.attributes.phone}`}><p>{attorney.attributes.phone}</p></a>
                 </div>
               </div>
               <div className={styles.email}>
@@ -219,142 +226,26 @@ const attorneys = () => {
                   />
                 </svg>
                 <div className={styles.email}>
-                  <p>Contact Ken</p>
+                <a href={`mailto:${attorney.attributes.email}`}><p>Contact {attorney.attributes.firstName}</p></a>
                 </div>
               </div>
             </div>
           </div>
           <div className={styles.YApara}>
-            <h1 style={{ margin: "0" }}>Ken R. Adcock, J.D.</h1>
+            <h1 style={{ margin: "0" }}>{attorney.attributes.firstName} {attorney.attributes.middleInitial} {attorney.attributes.lastName} {attorney.attributes.title}</h1>
             <p style={{ margin: "0", marginBottom: "2rem" }}>
-              &#8220;Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-              sed do eiusmod tempor incididunt ut labore et dolore magna
-              aliqua.&#8221;
+              <ReactMarkdown>{attorney.attributes.quote}</ReactMarkdown>
             </p>
             <h4 style={{ margin: "0" }}>Practice Areas:</h4>
             <p style={{ margin: "0" }}>
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
-              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-              officia deserunt mollit anim id est laborum. Duis aute irure dolor
-              in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
-              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-              officia deserunt mollit anim id est laborum.
+            <ReactMarkdown>{attorney.attributes.practiceAreas}</ReactMarkdown>
             </p>
           </div>
         </div>
       </div>
-      <div>
-        <div className={styles.coliseum}>
-          <div className={styles.phoneemail}>
-            <svg
-              version="1.1"
-              id="Isolation_Mode"
-              xmlns="http://www.w3.org/2000/svg"
-              xlink="http://www.w3.org/1999/xlink"
-              x="0px"
-              y="0px"
-              viewBox="0 0 82 82"
-              enableBackground="new 0 0 82 82"
-              space="preserve"
-              width="200"
-              fill="#002d62"
-            >
-              <g>
-                <circle cx="38.1" cy="19.7" r="15.8" />
-                <path
-                  d="M38.1,40.9c-17.3,0-31.4,8.6-31.4,19.2c0,0.1,0,0.2,0,0.3c7.6,8.8,18.8,14.4,31.3,14.4c12.5,0,23.7-5.6,31.3-14.4
-		c0-0.1,0-0.2,0-0.3C69.5,49.5,55.5,40.9,38.1,40.9z"
-                />
-              </g>
-            </svg>
+        )
+      })}
 
-            <div className={styles.peclass2}>
-              <div className={styles.phone}>
-                <svg
-                  version="1.1"
-                  id="Isolation_Mode"
-                  xmlns="http://www.w3.org/2000/svg"
-                  xlink="http://www.w3.org/1999/xlink"
-                  x="0px"
-                  y="0px"
-                  viewBox="0 0 102.7 102.9"
-                  enableBackground="new 0 0 102.7 102.9"
-                  space="preserve"
-                  fill="#002d62"
-                  width="35"
-                >
-                  <g>
-                    <path
-                      d="M52.1,6C26.3,6,5.3,27,5.3,52.8c0,25.9,21,46.8,46.8,46.8c25.9,0,46.8-21,46.8-46.8C98.9,27,78,6,52.1,6z M76.5,64.1
-		L75,71.7c-0.5,2.4-2.3,4.2-4.7,4.7c-2.3,0.5-4.7,0.7-7,0.7c-19.7,0-35.7-16-35.7-35.7c0-2.3,0.2-4.6,0.7-6.9
-		c0.5-2.4,2.4-4.2,4.8-4.7l6.9-1.3c1.4-0.3,2.7,0.6,3,2l3.1,13.7c0.3,1.2-0.4,2.5-1.6,3l-2,0.8c-0.3,0.1-0.4,0.4-0.3,0.7
-		c2.3,6.5,7.4,11.7,14,13.9c0.3,0.1,0.6,0,0.7-0.3l1.4-2.9c0.5-1.1,1.7-1.7,2.9-1.4l13.4,3C75.9,61.4,76.8,62.7,76.5,64.1z"
-                    />
-                  </g>
-                </svg>
-                <div className={styles.phone}>
-                  <p>601.898.9887</p>
-                </div>
-              </div>
-              <div className={styles.email}>
-                <svg
-                  version="1.1"
-                  id="Layer_1"
-                  xmlns="http://www.w3.org/2000/svg"
-                  xlink="http://www.w3.org/1999/xlink"
-                  x="0px"
-                  y="0px"
-                  viewBox="0 0 94 64"
-                  enableBackground="new 0 0 94 64"
-                  space="preserve"
-                  fill="#002d62"
-                  width="35"
-                >
-                  <path
-                    d="M84.6,52.9L66,32.8c-0.5-0.6-0.5-1.4,0-2l18.6-19.5c0.9-0.9,2.5-0.3,2.5,1v39.5C87.1,53.2,85.5,53.8,84.6,52.9z M9,11.3
-	l18.6,19.5c0.5,0.6,0.5,1.4,0,2L9,52.9c-0.9,1-2.5,0.3-2.5-1V12.3C6.5,11,8.1,10.4,9,11.3z M30.7,36.3c0.6-0.6,1.5-0.6,2.1,0
-	l4.6,4.8c2.7,2.2,6,3.4,9.3,3.4c3.4,0,6.8-1.2,9.7-3.6l4.4-4.6c0.6-0.6,1.5-0.6,2.1,0l18.2,19.6c0.9,0.9,0.2,2.4-1.1,2.4H13.6
-	c-1.3,0-1.9-1.5-1.1-2.4L30.7,36.3z M81.3,4.6c1.3,0,1.9,1.5,1,2.4L53.2,37.5c-3.7,3.1-9.1,3.1-12.6,0.2L11.3,7
-	c-0.9-0.9-0.2-2.4,1-2.4H81.3z"
-                  />
-                </svg>
-                <div className={styles.email}>
-                  <p>Contact Will</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className={styles.YApara}>
-            <h1>Will C. Ivison, J.D.</h1>
-            <p style={{ margin: "0", marginBottom: "2rem" }}>
-              &#8220;Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-              sed do eiusmod tempor incididunt ut labore et dolore magna
-              aliqua.&#8221;
-            </p>
-            <h4 style={{ margin: "0" }}>Practice Areas:</h4>
-            <p style={{ margin: "0" }}>
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
-              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-              officia deserunt mollit anim id est laborum. Duis aute irure dolor
-              in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
-              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-              officia deserunt mollit anim id est laborum.
-            </p>
-          </div>
-        </div>
-      </div>
       <div className={styles.spacer}>
         <div className={styles.attorneybar}>
           <svg

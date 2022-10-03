@@ -1,20 +1,41 @@
 import React from 'react'
 import styles from "../styles/Home.module.css";
+import { config } from "../components/Constants";
+import { useEffect, useState } from "react";
+import ReactMarkdown from "react-markdown";
+
+const URL = config.url;
 
 const YourHead = () => {
+  const [attorneysheader, setattorneysheader] = useState(null);
+  const [loadattorneysheader, setloadattorneysheader] = useState(true);
+  useEffect(() => {
+    fetch(`${URL}/your-attorneys-header`)
+      .then((res) => res.json())
+      .then((attorneysheader) => {
+        setattorneysheader(attorneysheader);
+        setloadattorneysheader(false);
+      });
+  }, []);
+
+  if (loadattorneysheader) {
+    return <div>loading...</div>;
+  }
   return (
-    <div style={{backgroundImage: "url('/Attorneys.jpg')"}} className={styles.back2}>
+    <div
+      style={{ backgroundImage: "url('/Attorneys.jpg')" }}
+      className={styles.back}
+    >
       <div className={styles.text}>
         <div>
-          <h1>"Experienced,</h1>
-          <p>Aggressive and Effective Trial Attorneys"</p>
+        <h1>{attorneysheader.data.attributes.largeText}</h1>
+          <p>{attorneysheader.data.attributes.smallText}</p>
         </div>
         <div style={{ marginTop: "2rem" }}>
-          <p>Attorneys</p>
-          
+          <p>{attorneysheader.data.attributes.subHead}</p>
         </div>
       </div>
-      <div style={{ margin: "0" }}>
+      <div style={{ margin: "0" }} className={styles.aiLogo}>
         <svg
           version="1.1"
           id="Isolation_Mode"
@@ -51,7 +72,7 @@ const YourHead = () => {
         </svg>
       </div>
     </div>
-  )
+  );
 }
 
 export default YourHead

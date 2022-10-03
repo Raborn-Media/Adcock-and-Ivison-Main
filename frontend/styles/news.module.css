@@ -39,3 +39,11 @@
 .attorneybar p {
   margin: 0;
 }
+
+.caseSec {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}

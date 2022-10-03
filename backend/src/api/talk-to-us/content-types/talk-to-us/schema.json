@@ -1,0 +1,23 @@
+{
+  "kind": "singleType",
+  "collectionName": "talk_to_uses",
+  "info": {
+    "singularName": "talk-to-us",
+    "pluralName": "talk-to-uses",
+    "displayName": "Talk To Us"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "content": {
+      "type": "richtext",
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "kind": "singleType",
+  "collectionName": "contact_headers",
+  "info": {
+    "singularName": "contact-header",
+    "pluralName": "contact-headers",
+    "displayName": "Talk To Us Header"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "largeText": {
+      "type": "richtext",
+      "required": true
+    },
+    "smallText": {
+      "type": "richtext",
+      "required": true
+    },
+    "subHead": {
+      "type": "richtext",
+      "required": true
+    }
+  }
+}

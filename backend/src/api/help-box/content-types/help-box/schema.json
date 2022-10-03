@@ -1,0 +1,23 @@
+{
+  "kind": "singleType",
+  "collectionName": "help_boxes",
+  "info": {
+    "singularName": "help-box",
+    "pluralName": "help-boxes",
+    "displayName": "Home Page - Help Box"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "content": {
+      "type": "richtext",
+      "required": true
+    }
+  }
+}

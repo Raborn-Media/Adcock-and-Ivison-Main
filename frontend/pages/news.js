@@ -2,8 +2,30 @@ import NewsHead from "../components/NewsHead";
 import Nav from "../components/Nav";
 import styles from "../styles/news.module.css";
 import Image from "next/image";
+import Cases from "../components/Cases";
+import {config} from "../components/Constants"
+import { useEffect, useState } from "react";
+import ReactMarkdown from "react-markdown"
+
+const URL = config.url
 
 const news = () => {
+  const [newstext, setnewstext] = useState(null)
+  const [loadnewstext, setloadnewstext] = useState(true)
+  useEffect(() => {
+    fetch(`${URL}/in-the-new`)
+      .then((res) => res.json())
+      .then((newstext) => {
+        setnewstext(newstext)
+        setloadnewstext(false)
+      })
+  }, [])
+
+  if(loadnewstext){
+    return(
+      <div>loading...</div>
+    )
+  }
   return (
     <>
       <NewsHead />
@@ -39,31 +61,12 @@ const news = () => {
               </g>
             </svg>
           </div>
-          <h1>In The News</h1>
+          <h1>{newstext.data.attributes.title}</h1>
           <p>
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum. Excepteur
-            sint occaecat cupidatat non proident, sunt in culpa qui officia
-            deserunt mollit anim id est laborum. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum. Excepteur
-            sint occaecat cupidatat non proident, sunt in culpa qui officia
-            deserunt mollit anim id est laborum. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum.
+          <ReactMarkdown>{newstext.data.attributes.content}</ReactMarkdown>
           </p>
 
-          <p>
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-            officia deserunt mollit anim id est laborum. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum. Excepteur sint occaecat cupidatat non proident,
-            sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </p>
+          
         </div>
       </div>
       <div className={styles.spacer}>
@@ -98,8 +101,8 @@ const news = () => {
           </div>
         </div>
       </div>
-      <div>
-        
+      <div className={styles.caseSec}>
+        <Cases />
       </div>
     </>
   );
