@@ -2,9 +2,18 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['localhost', 'res.cloudinary.com']
+    domains: ["localhost", "res.cloudinary.com"],
+  },
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      config.resolve.fallback = {
+        fs: false,
+      };
+    }
+
+    return config;
   },
   swcMinify: true,
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
