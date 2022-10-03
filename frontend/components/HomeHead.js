@@ -2,7 +2,6 @@ import React from "react";
 import styles from "../styles/Home.module.css";
 import { config } from "../components/Constants";
 import { useEffect, useState } from "react";
-import ReactMarkdown from "react-markdown";
 
 const URL = config.url;
 
