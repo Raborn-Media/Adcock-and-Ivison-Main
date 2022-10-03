@@ -1,20 +1,68 @@
 import React from "react";
 import styles from "../styles/Home.module.css";
+import { config } from "../components/Constants";
+import { useEffect, useState } from "react";
+import ReactMarkdown from "react-markdown";
+
+const URL = config.url;
 
 const HomeHead = () => {
+  const [headertext, setheadertext] = useState(null);
+  const [loadheadertext, setloadheadertext] = useState(true);
+  useEffect(() => {
+    fetch(`${URL}/home-page-header`)
+      .then((res) => res.json())
+      .then((headertext) => {
+        setheadertext(headertext);
+        setloadheadertext(false);
+      });
+  }, []);
+
+  if (loadheadertext) {
+    return <div>loading...</div>;
+  }
+
   return (
-    <div style={{backgroundImage: "url('/rescue_header.jpg')"}} className={styles.back}>
+    <div
+      style={{ backgroundImage: "url('/rescue_header.jpg')" }}
+      className={styles.back}
+    >
       <div className={styles.text}>
         <div>
-          <h1>"Experienced,</h1>
-          <p>Aggressive and Effective Trial Attorneys"</p>
+          <h1>{headertext.data.attributes.largeText}</h1>
+          <p>{headertext.data.attributes.smallText}</p>
         </div>
-        <div style={{ marginTop: "2rem" }}>
-          <p>Workplace</p>
-          <p>Learn More</p>
+        <div style={{ marginTop: "2rem", display:"flex", cursor: "pointer", width: "20%" }}>
+          <div style={{marginRight: "1rem"}}>
+            <p>{headertext.data.attributes.subHead}</p>
+            <p>Learn More</p>
+          </div>
+          <svg
+            version="1.1"
+            id="Isolation_Mode"
+            xmlns="http://www.w3.org/2000/svg"
+            xlink="http://www.w3.org/1999/xlink"
+            x="0px"
+            y="0px"
+            viewBox="0 0 186 182"
+            enable-background="new 0 0 186 182"
+            space="preserve"
+            width="4rem"
+          >
+            <path
+              fill="#fff"
+              d="M94,177c-47.7,0-86.4-38.8-86.4-86.4S46.3,4.1,94,4.1s86.4,38.8,86.4,86.4S141.7,177,94,177z M94,12.1
+		c-43.3,0-78.4,35.2-78.4,78.4S50.8,169,94,169s78.4-35.2,78.4-78.4S137.3,12.1,94,12.1z"
+            />
+            <path
+              fill="#fff"
+              d="M80.7,127.1c-1,0-2-0.4-2.8-1.2c-1.6-1.6-1.6-4.1,0-5.7l29.7-29.7L77.9,60.8c-1.6-1.6-1.6-4.1,0-5.7
+		c1.6-1.6,4.1-1.6,5.7,0l32.6,32.6c1.6,1.6,1.6,4.1,0,5.7l-32.6,32.6C82.8,126.7,81.7,127.1,80.7,127.1z"
+            />
+          </svg>
         </div>
       </div>
-      <div style={{ margin: "0" }}>
+      <div style={{ margin: "0" }} className={styles.aiLogo}>
         <svg
           version="1.1"
           id="Isolation_Mode"

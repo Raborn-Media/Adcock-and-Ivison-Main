@@ -123,3 +123,89 @@
 .navListGrey li:hover {
   font-weight: bold;
 }
+
+@media screen and (min-width: 1108px) and (max-width: 1352px) {
+  .header ul {
+    width: 80%;
+  }
+}
+
+@media screen and (min-width: 783px) and (max-width: 1107px) {
+  .header ul {
+    width: 95%;
+    margin-right: 0;
+    justify-content: center;
+  }
+  .header li {
+    padding-right: 2rem;
+  }
+  .header {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    padding: 0;
+    max-width: 1107px;
+  }
+  .image {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4rem;
+  }
+  .topright {
+    width: 100%;
+    justify-content: center;
+  }
+  .headerGrey {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 782px) {
+  .header ul {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin-top: 1rem;
+  }
+  .header li {
+    padding: 0;
+    margin-bottom: 0.5rem;
+  }
+  .header {
+    position: absolute;
+    max-width: 782px;
+    padding: 0;
+    flex-direction: column;
+  }
+  .headerGrey {
+    display: none !important;
+  }
+  .image {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4rem;
+  }
+  .topright {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 569px) {
+  .topright {
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+  }
+  .image {
+    margin-top: 6rem;
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "kind": "singleType",
+  "collectionName": "personal_injuries",
+  "info": {
+    "singularName": "personal-injury",
+    "pluralName": "personal-injuries",
+    "displayName": "Personal Injury"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "content": {
+      "type": "richtext",
+      "required": true
+    }
+  }
+}

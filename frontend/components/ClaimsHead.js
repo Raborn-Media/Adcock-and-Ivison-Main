@@ -1,9 +1,12 @@
 import React from 'react'
-import styles from '../styles/Claims.module.css'
+import styles from '../styles/Home.module.css'
 
 const ClaimsHead = () => {
   return (
-    <div className={styles.back}>
+    <div
+      className={styles.back}
+      style={{ backgroundImage: "url('/employment_claims.jpg')" }}
+    >
       <div className={styles.text}>
         <div>
           <h1>"Experienced,</h1>
@@ -13,7 +16,7 @@ const ClaimsHead = () => {
           <p>Workplace</p>
         </div>
       </div>
-      <div style={{ margin: "0" }}>
+      <div style={{ margin: "0" }} className={styles.aiLogo}>
         <svg
           version="1.1"
           id="Isolation_Mode"

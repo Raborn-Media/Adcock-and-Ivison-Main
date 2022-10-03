@@ -1,22 +1,42 @@
 import React from "react";
 import styles from "../styles/Home.module.css";
+import { config } from "../components/Constants";
+import { useEffect, useState } from "react";
+import ReactMarkdown from "react-markdown";
+
+const URL = config.url;
 
 const NewsHead = () => {
+  const [newsheader, setnewsheader] = useState(null);
+  const [loadnewsheader, setloadnewsheader] = useState(true);
+  useEffect(() => {
+    fetch(`${URL}/news-header`)
+      .then((res) => res.json())
+      .then((newsheader) => {
+        setnewsheader(newsheader);
+        setloadnewsheader(false);
+      });
+  }, []);
+
+  if (loadnewsheader) {
+    return <div>loading...</div>;
+  }
+
   return (
     <div
       style={{ backgroundImage: "url('/Inthenews.jpg')" }}
-      className={styles.back3}
+      className={styles.back}
     >
       <div className={styles.text}>
         <div>
-          <h1>"Experienced,</h1>
-          <p>Aggressive and Effective Trial Attorneys"</p>
+        <h1>{newsheader.data.attributes.largeText}</h1>
+          <p>{newsheader.data.attributes.smallText}</p>
         </div>
         <div style={{ marginTop: "1rem" }}>
-          <p>In The News</p>
+          <p>{newsheader.data.attributes.subHead}</p>
         </div>
       </div>
-      <div style={{ margin: "0" }}>
+      <div style={{ margin: "0" }} className={styles.aiLogo}>
         <svg
           version="1.1"
           id="Isolation_Mode"

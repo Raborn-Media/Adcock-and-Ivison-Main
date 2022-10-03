@@ -1,0 +1,23 @@
+{
+  "kind": "singleType",
+  "collectionName": "in_the_news",
+  "info": {
+    "singularName": "in-the-new",
+    "pluralName": "in-the-news",
+    "displayName": "In The News"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "content": {
+      "type": "richtext",
+      "required": true
+    }
+  }
+}

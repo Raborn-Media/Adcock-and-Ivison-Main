@@ -1,0 +1,28 @@
+{
+  "kind": "singleType",
+  "collectionName": "news_headers",
+  "info": {
+    "singularName": "news-header",
+    "pluralName": "news-headers",
+    "displayName": "In The News - Header",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "largeText": {
+      "type": "richtext",
+      "required": true
+    },
+    "smallText": {
+      "type": "richtext",
+      "required": true
+    },
+    "subHead": {
+      "type": "richtext",
+      "required": true
+    }
+  }
+}
