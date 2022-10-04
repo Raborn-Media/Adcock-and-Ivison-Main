@@ -1,6 +1,9 @@
 import React from "react";
 import Link from "next/link";
 import styles from "../styles/Footerstyles.module.css";
+import { adminConfig } from "./AdminURL";
+
+const adminURL = adminConfig.url
 
 const Footer = () => {
   return (
@@ -362,7 +365,7 @@ const Footer = () => {
             </div>
             <div>
               <p className={styles.bottomText}>
-                &#169;2022 Adcock & Ivison, PLLC, All Rights Reserved,
+                <a href={adminURL} target="_blank" style={{cursor:'text'}}>&copy; {new Date().getFullYear()}</a> Adcock & Ivison, PLLC, All Rights Reserved,
                 Disclaimer. | Site Designed, Developed and Brought to Life by
                 <a href="https://liquid-creative.com" target={"_blank"}>
                   {" "}
