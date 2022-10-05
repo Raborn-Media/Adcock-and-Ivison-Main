@@ -71,7 +71,9 @@ const Cases = () => {
       {caseNum == 0 && (
         <>
           <div className={styles.cases}>
+            <div className={styles.newcases}>
             <h2>New Cases</h2>
+            </div>
             {cases.data.map((caseSum) => {
               return (
                 <>
@@ -120,7 +122,10 @@ const Cases = () => {
             })}
           </div>
 
-          <div className={styles.cases} style={{ display: oldCases.length == 0?'none':''}}>
+          <div
+            className={styles.cases}
+            style={{ display: oldCases.length === 0 ? "none" : "" }}
+          >
             <h2>Archived Cases</h2>
             {cases.data.map((caseSum) => {
               return (

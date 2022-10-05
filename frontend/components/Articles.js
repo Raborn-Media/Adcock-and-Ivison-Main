@@ -120,7 +120,7 @@ const Articles = () => {
 
           <div
             className={styles.articles}
-            style={{ display: oldarticles.length != 0?"none":"" }}
+            style={{ display: oldarticles.length != 0 ? "none" : "" }}
           >
             <h2>Archived articles</h2>
             {articles.data.map((articlesum) => {
