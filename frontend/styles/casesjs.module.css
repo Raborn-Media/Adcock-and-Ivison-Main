@@ -7,6 +7,13 @@
   text-align: left;
 }
 
+.newcases {
+   display: flex; 
+   justify-content: center; 
+   align-items: center;
+   text-align: center;
+}
+
 .cases h2 {
    background-color: grey;
    color: white;
@@ -57,8 +64,7 @@
 }
 
 .caseImg {
-   width: 25%;
-   object-fit: contain;
+   width: 40%;
 }
 
 .caseTxt {
@@ -68,7 +74,8 @@
 
 .caseImg img {
    border-radius: 25px;
-   box-shadow: inset 1000px 1000px rgba(0, 0, 0, 0.5)
+   box-shadow: inset 1000px 1000px rgba(0, 0, 0, 0.5);
+   width: 100%;
 }
 
 .controls {
