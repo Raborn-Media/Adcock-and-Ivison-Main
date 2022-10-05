@@ -28,6 +28,16 @@ const Cases = () => {
   const newCases = [];
   const oldCases = [];
 
+  if (!loadcases) {
+    for (var i = 0; i < cases.data.length; i++) {
+      if (cases.data[i].attributes.archived == false) {
+        newCases.push(cases.data[i]);
+      } else if (cases.data[i].attributes.archived == true) {
+        oldCases.push(cases.data[i]);
+      }
+    }
+  }
+
   function nextNewCase() {
     if (caseNum == newCases[newCases.length - 1].id) {
       setCaseNum(newCases[0].id);
@@ -64,15 +74,13 @@ const Cases = () => {
     return <div>loading...</div>;
   }
 
-  console.log(oldCases);
-
   return (
     <>
       {caseNum == 0 && (
         <>
           <div className={styles.cases}>
             <div className={styles.newcases}>
-            <h2>New Cases</h2>
+              <h2>New Cases</h2>
             </div>
             {cases.data.map((caseSum) => {
               return (
@@ -124,9 +132,11 @@ const Cases = () => {
 
           <div
             className={styles.cases}
-            style={{ display: oldCases.length === 0 ? "none" : "" }}
+            style={{ display: oldCases.length == 0 ? "none" : "" }}
           >
-            <h2>Archived Cases</h2>
+            <div className={styles.newcases}>
+              <h2>Archived Cases</h2>
+            </div>
             {cases.data.map((caseSum) => {
               return (
                 <>
@@ -178,11 +188,6 @@ const Cases = () => {
       )}
 
       {cases.data.map((caseSum) => {
-        if (caseSum.attributes.archived == false) {
-          newCases.push(caseSum);
-        } else if (caseSum.attributes.archived == true) {
-          oldCases.push(caseSum);
-        }
         return (
           <>
             {caseSum.attributes.archived == false && caseNum == caseSum.id && (

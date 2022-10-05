@@ -2,8 +2,17 @@
   width: 40%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: column;
+  text-align: left;
+}
+
+.newcases {
+   display: flex; 
+   justify-content: center; 
+   align-items: center;
+   text-align: center;
+   width: 100%;
 }
 
 .articles h2 {
@@ -56,7 +65,7 @@
 }
 
 .articleImg {
-   width: 25%;
+   width: 40%;
 }
 
 .articleTxt {
@@ -66,7 +75,8 @@
 
 .articleImg img {
    border-radius: 25px;
-   box-shadow: inset 1000px 1000px rgba(0, 0, 0, 0.5)
+   box-shadow: inset 1000px 1000px rgba(0, 0, 0, 0.5);
+   width: 100%;
 }
 
 .controls {
