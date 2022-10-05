@@ -74,7 +74,7 @@ const HomeHead = () => {
           space="preserve"
           fill="#fff"
           width="24rem"
-          style={{ marginBottom: "-1.04rem", marginRight: "-0.8rem" }}
+          style={{ marginBottom: "-1.18rem", marginRight: "-0.8rem" }}
         >
           <path
             d="M78,52.9c0-13.1,0-26.2,0-39.4c0-1.1,0.1-2.3,0.3-3.4c0.2-2,1.4-3.3,3.4-3.7c1.5-0.3,3-0.5,4.5-0.7c0-0.9,0-1.6,0-2.2

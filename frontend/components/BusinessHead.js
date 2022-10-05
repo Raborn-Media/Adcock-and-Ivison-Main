@@ -5,7 +5,7 @@ const BusinessHead = () => {
 	return (
     <div
       className={styles.back}
-      style={{ backgroundImage: "url('/employment_claims.jpg')" }}
+      style={{ backgroundImage: "url('/business_header.jpg')", backgroundPosition: 'center top 50%', backgroundSize: "100%" }}
     >
       <div className={styles.text}>
         <div>

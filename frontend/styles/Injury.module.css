@@ -1,7 +1,6 @@
 .back {
-  background-image: url("/employment_claims.jpg");
-  background-size: 100%;
-  background-position: center top;
+  background-size: 120%;
+  background-position: left 80% top 2%;
   background-repeat: no-repeat;
   width: 100%;
   display: flex;

@@ -1,7 +1,6 @@
 import NewsHead from "../components/NewsHead";
 import Nav from "../components/Nav";
 import styles from "../styles/news.module.css";
-import Image from "next/image";
 import Cases from "../components/Cases";
 import {config} from "../components/Constants"
 import { useEffect, useState } from "react";
@@ -20,6 +19,16 @@ const news = () => {
         setloadnewstext(false)
       })
   }, [])
+
+  const [showDropdown, setShowDropdown] = useState(1);
+
+  function displayDropdown(id) {
+    if (showDropdown == id) {
+      setShowDropdown(0);
+    } else {
+      setShowDropdown(id);
+    }
+  }
 
   if(loadnewstext){
     return(
@@ -63,14 +72,67 @@ const news = () => {
           </div>
           <h1>{newstext.data.attributes.title}</h1>
           <p>
-          <ReactMarkdown>{newstext.data.attributes.content}</ReactMarkdown>
+            <ReactMarkdown>{newstext.data.attributes.content}</ReactMarkdown>
           </p>
-
-          
         </div>
       </div>
-      <div className={styles.spacer}>
+      <div
+        className={styles.spacer}
+        onClick={() => displayDropdown(1)}
+        style={{ cursor: "pointer" }}
+      >
         <div className={styles.attorneybar}>
+          <svg
+            version="1.1"
+            id="Layer_1"
+            xmlns="http://www.w3.org/2000/svg"
+            xlink="http://www.w3.org/1999/xlink"
+            x="0px"
+            y="0px"
+            viewBox="0 0 164 133"
+            enableBackground="new 0 0 164 133"
+            space="preserve"
+            fill="#fff"
+            width={50}
+          >
+            <path
+              stroke="#FFFFFF"
+              strokeWidth="0.4613"
+              strokeMiterlimit="10"
+              d="M102.7,70c0,11.6,11.9,21,26.7,21c14.7,0,26.7-9.4,26.7-21
+	c-0.8,0-1.5,0-2.3,0l-19.4-37.4c2-1.4,3.3-3.7,3.3-6.3c0-4.2-3.4-7.6-7.6-7.6l-42.2-7.2c-0.7-0.2-1.4-0.4-2.1-0.4
+	c-0.7,0-1.4,0.1-2.1,0.4l-42.8,7.2c-4.2,0-7.6,3.4-7.6,7.6c0,3.5,2.4,6.5,5.7,7.3L15.9,70c-0.5,0-1,0-1.5,0c0,11.6,11.9,21,26.7,21
+	c14.7,0,26.7-9.4,26.7-21c-0.8,0-1.5,0-2.3,0L46.7,33.9h32.1l-2.7,70.9c0,0-30.5,4.7-30.5,10.6S36.4,126,42.2,126h86.6
+	c5.8,0-3.5-4.7-3.5-10.6s-30.1-10.6-30.1-10.6l-2.6-70.9h34.3l-23,36.1C103.7,70,103.2,70,102.7,70z M20.3,70l22.5-35.4L61.1,70
+	C47.6,70,34.1,70,20.3,70z M131.1,34.7L149.4,70c-13.6,0-27,0-40.8,0L131.1,34.7z"
+            />
+          </svg>
+          <div style={{ marginLeft: "0.8rem" }}>
+            <p>News Articles</p>
+          </div>
+          {showDropdown == 1 ? (
+            <p className={styles.dropStatus}>CLOSE</p>
+          ) : (
+            <p className={styles.dropStatus}>OPEN</p>
+          )}
+        </div>
+      </div>
+      {showDropdown == 1 && (
+        <>
+          <div className={styles.newsArts}>
+            <h1>News Articles</h1>
+          </div>
+        </>
+      )}
+      <div
+        className={styles.spacer}
+        onClick={() => displayDropdown(2)}
+        style={{
+          cursor: "pointer",
+          marginBottom: showDropdown == 2 ? "" : "3rem",
+        }}
+      >
+        <div className={styles.attorneybar} style={{ marginTop: "2rem" }}>
           <svg
             version="1.1"
             id="Layer_1"
@@ -99,11 +161,20 @@ const news = () => {
           <div style={{ marginLeft: "0.8rem" }}>
             <p>Case Summaries & Judgements</p>
           </div>
+          {showDropdown == 2 ? (
+            <p className={styles.dropStatus}>CLOSE</p>
+          ) : (
+            <p className={styles.dropStatus}>OPEN</p>
+          )}
         </div>
       </div>
-      <div className={styles.caseSec}>
-        <Cases />
-      </div>
+      {showDropdown == 2 && (
+        <>
+          <div className={styles.caseSec}>
+            <Cases />
+          </div>
+        </>
+      )}
     </>
   );
 };

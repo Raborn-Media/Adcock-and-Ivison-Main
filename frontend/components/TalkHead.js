@@ -22,7 +22,7 @@ const TalkHead = () => {
     return <div>loading...</div>;
   }
   return (
-    <div className={styles.back} style={{backgroundImage: "url('/talk_to_us.jpg')"}}>
+    <div className={styles.back} style={{backgroundImage: "url('/talk_to_us.jpg')", backgroundPosition: 'center top 25%', backgroundSize: "100%"}}>
       <div className={styles.text}>
         <div>
         <h1>{contactheader.data.attributes.largeText}</h1>

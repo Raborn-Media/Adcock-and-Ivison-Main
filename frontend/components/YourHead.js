@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import styles from "../styles/Home.module.css";
 import { config } from "../components/Constants";
 import { useEffect, useState } from "react";
@@ -23,12 +23,12 @@ const YourHead = () => {
   }
   return (
     <div
-      style={{ backgroundImage: "url('/Attorneys.jpg')" }}
+      style={{ backgroundImage: "url('/Attorneys.jpg')", backgroundPosition: 'center top 50%', backgroundSize: "100%" }}
       className={styles.back}
     >
       <div className={styles.text}>
         <div>
-        <h1>{attorneysheader.data.attributes.largeText}</h1>
+          <h1>{attorneysheader.data.attributes.largeText}</h1>
           <p>{attorneysheader.data.attributes.smallText}</p>
         </div>
         <div style={{ marginTop: "2rem" }}>
@@ -73,6 +73,6 @@ const YourHead = () => {
       </div>
     </div>
   );
-}
+};
 
-export default YourHead
+export default YourHead;

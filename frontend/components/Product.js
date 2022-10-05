@@ -3,26 +3,94 @@ import styles from "../styles/Home.module.css";
 import { config } from "../components/Constants";
 import { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
+import Link from "next/link";
 
 const URL = config.url;
 
 const Product = () => {
-  const [helpboxtext, sethelpboxtext] = useState(null);
-  const [loadhelpboxtext, setloadhelpboxtext] = useState(true);
+  const [claimsDrop, setclaimsdrop] = useState(null);
+  const [loadclaimsdrop, setloadclaimsdrop] = useState(true);
   useEffect(() => {
-    fetch(`${URL}/help-box`)
+    fetch(`${URL}/claim-drops`)
       .then((res) => res.json())
-      .then((helpboxtext) => {
-        sethelpboxtext(helpboxtext);
-        setloadhelpboxtext(false);
+      .then((claimsdrop) => {
+        setclaimsdrop(claimsdrop);
+        setloadclaimsdrop(false);
       });
   }, []);
 
-  if (loadhelpboxtext) {
+  const [injuryDrop, setinjurydrop] = useState(null);
+  const [loadinjurydrop, setloadinjurydrop] = useState(true);
+  useEffect(() => {
+    fetch(`${URL}/injury-drops`)
+      .then((res) => res.json())
+      .then((injurydrop) => {
+        setinjurydrop(injurydrop);
+        setloadinjurydrop(false);
+      });
+  }, []);
+
+  const [medicalsDrop, setmedicalsdrop] = useState(null);
+  const [loadmedicalsdrop, setloadmedicalsdrop] = useState(true);
+  useEffect(() => {
+    fetch(`${URL}/medical-drops`)
+      .then((res) => res.json())
+      .then((medicalsdrop) => {
+        setmedicalsdrop(medicalsdrop);
+        setloadmedicalsdrop(false);
+      });
+  }, []);
+
+  const [businessDrop, setbusinessdrop] = useState(null);
+  const [loadbusinessdrop, setloadbusinessdrop] = useState(true);
+  useEffect(() => {
+    fetch(`${URL}/business-drops`)
+      .then((res) => res.json())
+      .then((businessdrop) => {
+        setbusinessdrop(businessdrop);
+        setloadbusinessdrop(false);
+      });
+  }, []);
+
+  const [insuranceDrop, setinsurancedrop] = useState(null);
+  const [loadinsurancedrop, setloadinsurancedrop] = useState(true);
+  useEffect(() => {
+    fetch(`${URL}/insurance-drops`)
+      .then((res) => res.json())
+      .then((insurancedrop) => {
+        setinsurancedrop(insurancedrop);
+        setloadinsurancedrop(false);
+      });
+  }, []);
+
+  const [content, setContent] = useState(1)
+
+  setTimeout(() => {
+    if (content == 5) {
+      setContent(1)
+    } else {
+      setContent(content + 1);
+    }
+  }, 10000);
+
+  if (loadclaimsdrop || loadinjurydrop || loadbusinessdrop || loadmedicalsdrop || loadinsurancedrop) {
     return <div>loading...</div>;
   }
+
   return (
     <div className={styles.capsec}>
+      <style jsx>{`
+        .animated {
+          animation-name: fadeIn;
+          animation-duration: 10s;
+        }
+        @keyframes fadeIn {
+          0% {opacity: 0;}
+          5% {opacity: 1;}
+          95% {opacity: 1;}
+          100% {opacity: 0;}
+        }
+      `}</style>
       <div className={styles.capitol}>
         <svg
           width="16rem"
@@ -74,11 +142,156 @@ const Product = () => {
       </div>
       <div className={styles.prosec}>
         <div className={styles.product}>
-          <h4 style={{ margin: "0" }}>{helpboxtext.data.attributes.title}</h4>
-          <ReactMarkdown>{helpboxtext.data.attributes.content}</ReactMarkdown>
-          <div className={styles.learn}>
-            <p>Learn More</p>
-          </div>
+          {content == 1 && (
+            <>
+              <h4 style={{ margin: "0" }} className={content == 1?"animated":'animateOut'}>
+                Employment Claims
+              </h4>
+              {claimsDrop.data.map((claim) => {
+                return (
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "flex-start",
+                      alignItems: "center",
+                      marginLeft: "2rem",
+                    }}
+                    className={content == 1?"animated":'animateOut'}
+                  >
+                    &bull;&nbsp;
+                    <ReactMarkdown>{claim.attributes.title}</ReactMarkdown>
+                  </div>
+                );
+              })}
+              <div className={styles.learn}>
+                <Link href={"/claims"}>
+                  <p style={{ cursor: "pointer" }} className={content == 1?"animated":'animateOut'}>
+                    Learn More
+                  </p>
+                </Link>
+              </div>
+            </>
+          )}
+          {content == 2 && (
+            <>
+              <h4 style={{ margin: "0" }} className={content == 2?"animated":'animateOut'}>
+                Personal Injury
+              </h4>
+              {injuryDrop.data.map((injury) => {
+                return (
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "flex-start",
+                      alignItems: "center",
+                      marginLeft: "2rem",
+                    }}
+                    className={content == 2?"animated":'animateOut'}
+                  >
+                    &bull;&nbsp;
+                    <ReactMarkdown>{injury.attributes.title}</ReactMarkdown>
+                  </div>
+                );
+              })}
+              <div className={styles.learn}>
+                <Link href={"/injury"}>
+                  <p style={{ cursor: "pointer" }} className={content == 2?"animated":'animateOut'}>
+                    Learn More
+                  </p>
+                </Link>
+              </div>
+            </>
+          )}
+          {content == 3 && (
+            <>
+              <h4 style={{ margin: "0" }} className={content == 3?"animated":'animateOut'}>
+                Medical
+              </h4>
+              {medicalsDrop.data.map((medical) => {
+                return (
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "flex-start",
+                      alignItems: "center",
+                      marginLeft: "2rem",
+                    }}
+                    className={content == 3?"animated":'animateOut'}
+                  >
+                    &bull;&nbsp;
+                    <ReactMarkdown>{medical.attributes.title}</ReactMarkdown>
+                  </div>
+                );
+              })}
+              <div className={styles.learn}>
+                <Link href={"/medical"}>
+                  <p style={{ cursor: "pointer" }} className={content == 3?"animated":'animateOut'}>
+                    Learn More
+                  </p>
+                </Link>
+              </div>
+            </>
+          )}
+          {content == 4 && (
+            <>
+              <h4 style={{ margin: "0" }} className={content == 4?"animated":'animateOut'}>
+                Business
+              </h4>
+              {businessDrop.data.map((business) => {
+                return (
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "flex-start",
+                      alignItems: "center",
+                      marginLeft: "2rem",
+                    }}
+                    className={content == 4?"animated":'animateOut'}
+                  >
+                    &bull;&nbsp;
+                    <ReactMarkdown>{business.attributes.title}</ReactMarkdown>
+                  </div>
+                );
+              })}
+              <div className={styles.learn}>
+                <Link href={"/business"}>
+                  <p style={{ cursor: "pointer" }} className={content == 4?"animated":'animateOut'}>
+                    Learn More
+                  </p>
+                </Link>
+              </div>
+            </>
+          )}
+          {content == 5 && (
+            <>
+              <h4 style={{ margin: "0" }} className={content == 5?"animated":'animateOut'}>
+                Insurance
+              </h4>
+              {insuranceDrop.data.map((insurance) => {
+                return (
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "flex-start",
+                      alignItems: "center",
+                      marginLeft: "2rem",
+                    }}
+                    className={content == 5?"animated":'animateOut'}
+                  >
+                    &bull;&nbsp;
+                    <ReactMarkdown>{insurance.attributes.title}</ReactMarkdown>
+                  </div>
+                );
+              })}
+              <div className={styles.learn}>
+                <Link href={"/insurance"}>
+                  <p style={{ cursor: "pointer" }} className={content == 5?"animated":'animateOut'}>
+                    Learn More
+                  </p>
+                </Link>
+              </div>
+            </>
+          )}
         </div>
       </div>
     </div>
