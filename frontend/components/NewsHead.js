@@ -24,7 +24,7 @@ const NewsHead = () => {
 
   return (
     <div
-      style={{ backgroundImage: "url('/Inthenews.jpg')" }}
+      style={{ backgroundImage: "url('/Inthenews.jpg')", backgroundPosition: 'center top 70%', backgroundSize: "100%" }}
       className={styles.back}
     >
       <div className={styles.text}>

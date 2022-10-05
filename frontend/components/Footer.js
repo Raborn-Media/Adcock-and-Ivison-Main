@@ -49,7 +49,7 @@ const Footer = () => {
               viewBox="0 0 112.7 84.5"
               enable-background="new 0 0 112.7 84.5"
               space="preserve"
-              width="8.rem"
+              width="8rem"
             >
               <path
                 fill="none"

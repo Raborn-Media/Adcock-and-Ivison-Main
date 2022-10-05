@@ -5,7 +5,7 @@ const MedicalHead = () => {
 	return (
     <div
       className={styles.back}
-      style={{ backgroundImage: "url('/employment_claims.jpg')" }}
+      style={{ backgroundImage: "url('/medical_header.jpg')", backgroundPosition: 'center top 50%', backgroundSize: "100%"}} 
     >
       <div className={styles.text}>
         <div>
