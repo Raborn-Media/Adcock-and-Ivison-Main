@@ -64,6 +64,8 @@ const Cases = () => {
     return <div>loading...</div>;
   }
 
+  console.log(oldCases);
+
   return (
     <>
       {caseNum == 0 && (
@@ -118,7 +120,7 @@ const Cases = () => {
             })}
           </div>
 
-          <div className={styles.cases}>
+          <div className={styles.cases} style={{ display: oldCases.length == 0?'none':''}}>
             <h2>Archived Cases</h2>
             {cases.data.map((caseSum) => {
               return (

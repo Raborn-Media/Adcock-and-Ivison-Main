@@ -2,6 +2,7 @@ import NewsHead from "../components/NewsHead";
 import Nav from "../components/Nav";
 import styles from "../styles/news.module.css";
 import Cases from "../components/Cases";
+import Articles from "../components/Articles";
 import {config} from "../components/Constants"
 import { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown"
@@ -120,7 +121,7 @@ const news = () => {
       {showDropdown == 1 && (
         <>
           <div className={styles.newsArts}>
-            <h1>News Articles</h1>
+            <Articles />
           </div>
         </>
       )}
