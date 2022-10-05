@@ -118,7 +118,10 @@ const Articles = () => {
             })}
           </div>
 
-          <div className={styles.articles}>
+          <div
+            className={styles.articles}
+            style={{ display: oldarticles.length != 0?"none":"" }}
+          >
             <h2>Archived articles</h2>
             {articles.data.map((articlesum) => {
               return (
@@ -178,53 +181,69 @@ const Articles = () => {
         }
         return (
           <>
-            {articlesum.attributes.archived == false && articleNum == articlesum.id && (
-              <div className={styles.articleInfoMain}>
-                <div className={styles.controls}>
-                  <img src="/circle_arrow.svg" onClick={prevNewarticle} />
-                  <h1>{articlesum.attributes.title}</h1>
-                  <img src="/circle_arrow.svg" onClick={nextNewarticle} />
-                  <h4 className={styles.close} onClick={() => setarticleNum(0)}>
-                    CLOSE ARTICLE
-                  </h4>
-                </div>
-                <div className={styles.articleInfo}>
-                  <div className={styles.articleImg}>
-                    {articlesum.attributes.image.data != null && (
-                      <img src={articlesum.attributes.image.data.attributes.url} />
-                    )}
+            {articlesum.attributes.archived == false &&
+              articleNum == articlesum.id && (
+                <div className={styles.articleInfoMain}>
+                  <div className={styles.controls}>
+                    <img src="/circle_arrow.svg" onClick={prevNewarticle} />
+                    <h1>{articlesum.attributes.title}</h1>
+                    <img src="/circle_arrow.svg" onClick={nextNewarticle} />
+                    <h4
+                      className={styles.close}
+                      onClick={() => setarticleNum(0)}
+                    >
+                      CLOSE ARTICLE
+                    </h4>
                   </div>
-                  <div className={styles.articleTxt}>
-                    <h2>{articlesum.attributes.title}</h2>
-                    <ReactMarkdown>{articlesum.attributes.summary}</ReactMarkdown>
+                  <div className={styles.articleInfo}>
+                    <div className={styles.articleImg}>
+                      {articlesum.attributes.image.data != null && (
+                        <img
+                          src={articlesum.attributes.image.data.attributes.url}
+                        />
+                      )}
+                    </div>
+                    <div className={styles.articleTxt}>
+                      <h2>{articlesum.attributes.title}</h2>
+                      <ReactMarkdown>
+                        {articlesum.attributes.summary}
+                      </ReactMarkdown>
+                    </div>
                   </div>
                 </div>
-              </div>
-            )}
+              )}
 
-            {articlesum.attributes.archived == true && articleNum == articlesum.id && (
-              <div className={styles.articleInfoMain}>
-                <div className={styles.controls}>
-                  <img src="/circle_arrow.svg" onClick={prevOldarticle} />
-                  <h1>{articlesum.attributes.title}</h1>
-                  <img src="/circle_arrow.svg" onClick={nextOldarticle} />
-                  <h4 className={styles.close} onClick={() => setarticleNum(0)}>
-                    CLOSE ARTICLE
-                  </h4>
-                </div>
-                <div className={styles.articleInfo}>
-                  <div className={styles.articleImg}>
-                    {articlesum.attributes.image.data != null && (
-                      <img src={articlesum.attributes.image.data.attributes.url} />
-                    )}
+            {articlesum.attributes.archived == true &&
+              articleNum == articlesum.id && (
+                <div className={styles.articleInfoMain}>
+                  <div className={styles.controls}>
+                    <img src="/circle_arrow.svg" onClick={prevOldarticle} />
+                    <h1>{articlesum.attributes.title}</h1>
+                    <img src="/circle_arrow.svg" onClick={nextOldarticle} />
+                    <h4
+                      className={styles.close}
+                      onClick={() => setarticleNum(0)}
+                    >
+                      CLOSE ARTICLE
+                    </h4>
                   </div>
-                  <div className={styles.articleTxt}>
-                    <h2>{articlesum.attributes.title}</h2>
-                    <ReactMarkdown>{articlesum.attributes.summary}</ReactMarkdown>
+                  <div className={styles.articleInfo}>
+                    <div className={styles.articleImg}>
+                      {articlesum.attributes.image.data != null && (
+                        <img
+                          src={articlesum.attributes.image.data.attributes.url}
+                        />
+                      )}
+                    </div>
+                    <div className={styles.articleTxt}>
+                      <h2>{articlesum.attributes.title}</h2>
+                      <ReactMarkdown>
+                        {articlesum.attributes.summary}
+                      </ReactMarkdown>
+                    </div>
                   </div>
                 </div>
-              </div>
-            )}
+              )}
           </>
         );
       })}

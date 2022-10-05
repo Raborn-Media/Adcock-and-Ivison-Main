@@ -4,7 +4,8 @@
   "info": {
     "singularName": "article",
     "pluralName": "articles",
-    "displayName": "News Articles"
+    "displayName": "News Articles",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -20,11 +21,17 @@
       "required": true
     },
     "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "archived": {
+      "type": "boolean",
+      "default": false,
+      "required": true
     }
   }
 }

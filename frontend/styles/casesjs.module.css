@@ -2,8 +2,9 @@
   width: 40%;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   flex-direction: column;
+  text-align: left;
 }
 
 .cases h2 {
@@ -57,6 +58,7 @@
 
 .caseImg {
    width: 25%;
+   object-fit: contain;
 }
 
 .caseTxt {
