@@ -28,6 +28,16 @@ const Articles = () => {
   const newarticles = [];
   const oldarticles = [];
 
+  if (!loadarticles) {
+    for (var i = 0; i < articles.data.length; i++) {
+      if (articles.data[i].attributes.archived == false) {
+        newarticles.push(articles.data[i]);
+      } else if (articles.data[i].attributes.archived == true) {
+        oldarticles.push(articles.data[i]);
+      }
+    }
+  }
+
   function nextNewarticle() {
     if (articleNum == newarticles[newarticles.length - 1].id) {
       setarticleNum(newarticles[0].id);
@@ -69,7 +79,9 @@ const Articles = () => {
       {articleNum == 0 && (
         <>
           <div className={styles.articles}>
-            <h2>New articles</h2>
+            <div className={styles.newcases}>
+              <h2>New Articles</h2>
+            </div>
             {articles.data.map((articlesum) => {
               return (
                 <>
@@ -120,9 +132,11 @@ const Articles = () => {
 
           <div
             className={styles.articles}
-            style={{ display: oldarticles.length != 0 ? "none" : "" }}
+            style={{ display: oldarticles.length == 0 ? "none" : "" }}
           >
-            <h2>Archived articles</h2>
+            <div className={styles.newcases}>
+              <h2>Archived Articles</h2>
+            </div>
             {articles.data.map((articlesum) => {
               return (
                 <>
@@ -174,11 +188,6 @@ const Articles = () => {
       )}
 
       {articles.data.map((articlesum) => {
-        if (articlesum.attributes.archived == false) {
-          newarticles.push(articlesum);
-        } else if (articlesum.attributes.archived == true) {
-          oldarticles.push(articlesum);
-        }
         return (
           <>
             {articlesum.attributes.archived == false &&
