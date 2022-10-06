@@ -26,7 +26,7 @@ const ClaimsHead = () => {
       className={styles.back}
       style={{ backgroundImage: "url('/employment_claims.jpg')" }}
     >
-      <div className={styles.text}>
+      <div className={styles.text} style={{animation: 'unset'}}>
         <div>
           <h1
             dangerouslySetInnerHTML={{

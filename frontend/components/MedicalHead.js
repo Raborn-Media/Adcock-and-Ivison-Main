@@ -29,7 +29,7 @@ const MedicalHead = () => {
         backgroundSize: "100%",
       }}
     >
-      <div className={styles.text}>
+      <div className={styles.text} style={{animation: 'unset'}}>
         <div>
           <h1
             dangerouslySetInnerHTML={{

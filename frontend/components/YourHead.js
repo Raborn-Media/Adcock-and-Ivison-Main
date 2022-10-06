@@ -26,7 +26,7 @@ const YourHead = () => {
       style={{ backgroundImage: "url('/Attorneys.jpg')", backgroundPosition: 'center top 50%', backgroundSize: "100%" }}
       className={styles.back}
     >
-      <div className={styles.text}>
+      <div className={styles.text} style={{animation: 'unset'}}>
         <div>
           <h1 dangerouslySetInnerHTML={{__html: attorneysheader.data.attributes.largeText}}></h1>
           <p dangerouslySetInnerHTML={{__html: attorneysheader.data.attributes.smallText}}></p>
