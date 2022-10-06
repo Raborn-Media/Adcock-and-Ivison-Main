@@ -41,6 +41,8 @@ const claims = () => {
     return <div>loading...</div>;
   }
 
+  
+
   function displayDropdown(id) {
     if (showDropdown == id) {
       setShowDropdown(0);
@@ -160,9 +162,8 @@ const claims = () => {
                 {showDropdown == drop.id && (
                   <div className={styles.dropBody}>
                     <p>
-                    <ReactMarkdown>{drop.attributes.content}</ReactMarkdown>
+                      <ReactMarkdown>{drop.attributes.content}</ReactMarkdown>
                     </p>
-                    
                   </div>
                 )}
               </>

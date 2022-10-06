@@ -1,7 +1,26 @@
-import React from 'react'
-import styles from '../styles/Home.module.css'
+import React from "react";
+import styles from "../styles/Home.module.css";
+import { config } from "../components/Constants";
+import { useEffect, useState } from "react";
+
+const URL = config.url;
 
 const ClaimsHead = () => {
+  const [claimheader, setclaimheader] = useState(null);
+  const [loadclaimheader, setloadclaimheader] = useState(true);
+  useEffect(() => {
+    fetch(`${URL}/employment-claims-header`)
+      .then((res) => res.json())
+      .then((claimheader) => {
+        setclaimheader(claimheader);
+        setloadclaimheader(false);
+      });
+  }, []);
+
+  if (loadclaimheader) {
+    return <div>loading...</div>;
+  }
+
   return (
     <div
       className={styles.back}
@@ -9,11 +28,23 @@ const ClaimsHead = () => {
     >
       <div className={styles.text}>
         <div>
-          <h1>"Experienced,</h1>
-          <p>Aggressive and Effective Trial Attorneys"</p>
+          <h1
+            dangerouslySetInnerHTML={{
+              __html: claimheader.data.attributes.largeText,
+            }}
+          ></h1>
+          <p
+            dangerouslySetInnerHTML={{
+              __html: claimheader.data.attributes.smallText,
+            }}
+          ></p>
         </div>
         <div style={{ marginTop: "2rem" }}>
-          <p>Workplace</p>
+          <p
+            dangerouslySetInnerHTML={{
+              __html: claimheader.data.attributes.subHead,
+            }}
+          ></p>
         </div>
       </div>
       <div style={{ margin: "0" }} className={styles.aiLogo}>
@@ -54,6 +85,6 @@ const ClaimsHead = () => {
       </div>
     </div>
   );
-}
+};
 
-export default ClaimsHead
+export default ClaimsHead;

@@ -28,9 +28,9 @@ const Help = () => {
     <div className={styles.help}>
       <div className={styles.para2}>
         <h1>{helptext.data.attributes.title}</h1>
-        <p>
-        <ReactMarkdown>{helptext.data.attributes.content}</ReactMarkdown>
-        </p>
+        <p
+          dangerouslySetInnerHTML={{ __html: helptext.data.attributes.content }}
+        ></p>
       </div>
     </div>
   );

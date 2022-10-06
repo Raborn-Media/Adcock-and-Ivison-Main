@@ -1,0 +1,27 @@
+{
+  "kind": "singleType",
+  "collectionName": "business_headers",
+  "info": {
+    "singularName": "business-header",
+    "pluralName": "business-headers",
+    "displayName": "Business-Header"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "largeText": {
+      "type": "richtext",
+      "required": true
+    },
+    "smallText": {
+      "type": "richtext",
+      "required": true
+    },
+    "subHead": {
+      "type": "richtext",
+      "required": true
+    }
+  }
+}
