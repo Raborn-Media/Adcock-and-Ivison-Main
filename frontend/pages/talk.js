@@ -64,11 +64,7 @@ const talk = () => {
             </svg>
             <div className={styles.msginfo}>
               <h3>{talktext.data.attributes.title}</h3>
-              <p style={{ margin: "0" }}>
-                <ReactMarkdown>
-                  {talktext.data.attributes.content}
-                </ReactMarkdown>
-              </p>
+              <p style={{ margin: "0" }} dangerouslySetInnerHTML={{__html: talktext.data.attributes.content}}></p>
             </div>
           </div>
           <div className={styles.contactinfo}>
