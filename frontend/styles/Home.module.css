@@ -180,7 +180,7 @@
 }
 
 .para2 p {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
 @media screen and (min-width: 1135px) and (max-width: 1524px) {
@@ -241,6 +241,7 @@
 
 .para {
   width: 70%;
+  font-size: 1.2rem;
 }
 
 @media screen and (max-width: 899px) {
