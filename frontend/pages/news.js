@@ -72,8 +72,7 @@ const news = () => {
             </svg>
           </div>
           <h1>{newstext.data.attributes.title}</h1>
-          <p>
-            <ReactMarkdown>{newstext.data.attributes.content}</ReactMarkdown>
+          <p dangerouslySetInnerHTML={{__html: newstext.data.attributes.content}}>
           </p>
         </div>
       </div>

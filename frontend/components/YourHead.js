@@ -28,11 +28,11 @@ const YourHead = () => {
     >
       <div className={styles.text}>
         <div>
-          <h1>{attorneysheader.data.attributes.largeText}</h1>
-          <p>{attorneysheader.data.attributes.smallText}</p>
+          <h1 dangerouslySetInnerHTML={{__html: attorneysheader.data.attributes.largeText}}></h1>
+          <p dangerouslySetInnerHTML={{__html: attorneysheader.data.attributes.smallText}}></p>
         </div>
         <div style={{ marginTop: "2rem" }}>
-          <p>{attorneysheader.data.attributes.subHead}</p>
+          <p dangerouslySetInnerHTML={{__html: attorneysheader.data.attributes.subHead}}></p>
         </div>
       </div>
       <div style={{ margin: "0" }} className={styles.aiLogo}>

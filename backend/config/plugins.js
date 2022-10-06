@@ -15,4 +15,7 @@ module.exports = ({ env }) => ({
     },
   },
   ckeditor: true,
+  "generate-data": {
+    enabled: true,
+  },
 });
