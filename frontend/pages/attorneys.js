@@ -131,9 +131,11 @@ const attorneys = () => {
         </div>
         <div className={styles.YApara}>
           <h1>{attorneytext.data.attributes.title}</h1>
-          <p style={{ margin: "0" }}>
-          <ReactMarkdown>{attorneytext.data.attributes.content}</ReactMarkdown>
-          </p>
+          <p
+            dangerouslySetInnerHTML={{
+              __html: attorneytext.data.attributes.content
+            }}
+          ></p>
         </div>
       </div>
       <div className={styles.spacer}>
