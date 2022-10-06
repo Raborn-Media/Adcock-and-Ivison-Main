@@ -1,0 +1,27 @@
+{
+  "kind": "singleType",
+  "collectionName": "employment_claims_headers",
+  "info": {
+    "singularName": "employment-claims-header",
+    "pluralName": "employment-claims-headers",
+    "displayName": "Employment Claims-Header"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "largeText": {
+      "type": "richtext",
+      "required": true
+    },
+    "smallText": {
+      "type": "richtext",
+      "required": true
+    },
+    "subHead": {
+      "type": "richtext",
+      "required": true
+    }
+  }
+}

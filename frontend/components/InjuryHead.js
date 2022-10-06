@@ -1,19 +1,54 @@
-import React from 'react'
-import styles from '../styles/Home.module.css'
+import React from "react";
+import styles from "../styles/Home.module.css";
+import { config } from "../components/Constants";
+import { useEffect, useState } from "react";
+
+const URL = config.url;
 
 const InjuryHead = () => {
-	return (
+  const [injuryheader, setinjuryheader] = useState(null);
+  const [loadinjuryheader, setloadinjuryheader] = useState(true);
+  useEffect(() => {
+    fetch(`${URL}/personal-injury-header`)
+      .then((res) => res.json())
+      .then((injuryheader) => {
+        setinjuryheader(injuryheader);
+        setloadinjuryheader(false);
+      });
+  }, []);
+
+  if (loadinjuryheader) {
+    return <div>loading...</div>;
+  }
+
+  return (
     <div
       className={styles.back}
-      style={{ backgroundImage: "url('/personal_injury.jpg')", backgroundPosition: 'center top 50%', backgroundSize: "100%"}}
+      style={{
+        backgroundImage: "url('/personal_injury.jpg')",
+        backgroundPosition: "center top 50%",
+        backgroundSize: "100%",
+      }}
     >
       <div className={styles.text}>
         <div>
-          <h1>"Experienced,</h1>
-          <p>Aggressive and Effective Trial Attorneys"</p>
+          <h1
+            dangerouslySetInnerHTML={{
+              __html: injuryheader.data.attributes.largeText,
+            }}
+          ></h1>
+          <p
+            dangerouslySetInnerHTML={{
+              __html: injuryheader.data.attributes.smallText,
+            }}
+          ></p>
         </div>
         <div style={{ marginTop: "2rem" }}>
-          <p>Personal Injury</p>
+          <p
+            dangerouslySetInnerHTML={{
+              __html: injuryheader.data.attributes.subHeader,
+            }}
+          ></p>
         </div>
       </div>
       <div style={{ margin: "0" }} className={styles.aiLogo}>
@@ -54,6 +89,6 @@ const InjuryHead = () => {
       </div>
     </div>
   );
-}
+};
 
-export default InjuryHead
+export default InjuryHead;

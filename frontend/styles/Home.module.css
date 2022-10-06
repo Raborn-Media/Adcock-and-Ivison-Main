@@ -3,12 +3,13 @@
   background-position: left 80% top 36%;
   background-repeat: no-repeat;
   width: 100%;
-  display: flex;
   justify-content: flex-start;
   align-items: flex-end;
   height: 60%;
   box-shadow: inset 2000px 2000px rgba(0, 0, 0, 0.5);
   position: relative;
+  display: flex;
+  background-color: #979794;
 }
 
 @media screen and (min-width: 519px) and (max-width: 926px) {
@@ -29,6 +30,17 @@
   padding-top: 28rem;
   margin-left: 6rem;
   padding-bottom: 6rem;
+  animation-name: fade;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes fade {
+  0% {opacity: 0;}
+  10% {opacity: 0;}
+  30% {opacity: 1;}
+  90% {opacity: 1;}
+  100% {opacity: 0;}
 }
 
 .text h1 {
@@ -279,7 +291,7 @@
   padding: 1rem;
   margin: 0;
   font-size: 1.2rem;
-  min-height: 336.5px;
+  min-height: 250px;
 }
 
 .product li {
@@ -322,4 +334,8 @@
 .learn {
   text-decoration: underline;
   margin-left: 2.5rem;
+}
+
+.para p {
+  margin: 0;
 }

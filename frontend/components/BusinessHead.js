@@ -1,7 +1,26 @@
 import React from 'react'
 import styles from '../styles/Home.module.css'
+import { config } from "../components/Constants";
+import { useEffect, useState } from "react";
+
+const URL = config.url;
 
 const BusinessHead = () => {
+  const [businessheader, setbusinessheader] = useState(null);
+  const [loadbusinessheader, setloadbusinessheader] = useState(true);
+  useEffect(() => {
+    fetch(`${URL}/business-header`)
+      .then((res) => res.json())
+      .then((businessheader) => {
+        setbusinessheader(businessheader);
+        setloadbusinessheader(false);
+      });
+  }, []);
+
+  if (loadbusinessheader) {
+    return <div>loading...</div>;
+  }
+
 	return (
     <div
       className={styles.back}
@@ -9,11 +28,23 @@ const BusinessHead = () => {
     >
       <div className={styles.text}>
         <div>
-          <h1>"Experienced,</h1>
-          <p>Aggressive and Effective Trial Attorneys"</p>
+        <h1
+            dangerouslySetInnerHTML={{
+              __html: businessheader.data.attributes.largeText,
+            }}
+          ></h1>
+          <p
+            dangerouslySetInnerHTML={{
+              __html: businessheader.data.attributes.smallText,
+            }}
+          ></p>
         </div>
         <div style={{ marginTop: "2rem" }}>
-          <p>Business</p>
+        <p
+            dangerouslySetInnerHTML={{
+              __html: businessheader.data.attributes.subHead,
+            }}
+          ></p>
         </div>
       </div>
       <div style={{ margin: "0" }} className={styles.aiLogo}>

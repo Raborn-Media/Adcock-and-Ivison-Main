@@ -1,0 +1,27 @@
+{
+  "kind": "singleType",
+  "collectionName": "personal_injury_headers",
+  "info": {
+    "singularName": "personal-injury-header",
+    "pluralName": "personal-injury-headers",
+    "displayName": "Personal Injury-Header"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "largeText": {
+      "type": "richtext",
+      "required": true
+    },
+    "smallText": {
+      "type": "richtext",
+      "required": true
+    },
+    "subHeader": {
+      "type": "richtext",
+      "required": true
+    }
+  }
+}

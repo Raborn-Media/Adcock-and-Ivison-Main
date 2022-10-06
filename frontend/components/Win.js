@@ -64,10 +64,9 @@ const Win = () => {
         </div>
         <div className={styles.article}>
           <h1 style={{ margin: "0" }}>{wintext.data.attributes.title}</h1>
-          <div className={styles.para}>
-            <p style={{ margin: "0" }}>
-              <ReactMarkdown>{wintext.data.attributes.content}</ReactMarkdown>
-            </p>
+          <div
+            className={styles.para}
+            dangerouslySetInnerHTML={{ __html: wintext.data.attributes.content }}>
           </div>
         </div>
       </div>

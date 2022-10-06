@@ -1,0 +1,27 @@
+{
+  "kind": "singleType",
+  "collectionName": "medical_headers",
+  "info": {
+    "singularName": "medical-header",
+    "pluralName": "medical-headers",
+    "displayName": "Medical-Header"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "largeText": {
+      "type": "richtext",
+      "required": true
+    },
+    "smallText": {
+      "type": "richtext",
+      "required": true
+    },
+    "subHead": {
+      "type": "richtext",
+      "required": true
+    }
+  }
+}
