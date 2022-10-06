@@ -4,7 +4,6 @@ import styles from "../styles/attorneys.module.css";
 import Image from "next/image";
 import {config} from "../components/Constants"
 import { useEffect, useState } from "react";
-import ReactMarkdown from "react-markdown"
 
 const URL = config.url
 
@@ -234,7 +233,7 @@ const attorneys = () => {
             </div>
           </div>
           <div className={styles.YApara}>
-            <h1 style={{ margin: "0" }}>{attorney.attributes.firstName} {attorney.attributes.middleInitial} {attorney.attributes.lastName} {attorney.attributes.title}</h1>
+            <h1 style={{ margin: "0" }}>{attorney.attributes.firstName} {attorney.attributes.middleInitial} {attorney.attributes.lastName}, {attorney.attributes.title}</h1>
             <p style={{ margin: "0", marginBottom: "2rem" }} dangerouslySetInnerHTML={{__html: attorney.attributes.quote}}>
             </p>
             <h4 style={{ margin: "0" }}>Practice Areas:</h4>

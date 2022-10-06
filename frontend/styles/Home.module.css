@@ -45,6 +45,15 @@
   padding-top: 28rem;
   margin-left: 6rem;
   padding-bottom: 6rem;
+  z-index: 20;
+}
+
+.textAnim {
+  color: #fff;
+  width: 100%;
+  padding-top: 28rem;
+  margin-left: 6rem;
+  padding-bottom: 6rem;
   animation-name: fade;
   animation-duration: 10s;
   animation-iteration-count: infinite;
@@ -359,4 +368,5 @@
 
 .para p {
   margin: 0;
+  font-size: 1.2rem;
 }

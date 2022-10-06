@@ -26,7 +26,7 @@ const BusinessHead = () => {
       className={styles.back}
       style={{ backgroundImage: "url('/business_header.jpg')", backgroundPosition: 'center top 50%', backgroundSize: "100%" }}
     >
-      <div className={styles.text}>
+      <div className={styles.text} style={{animation: 'unset'}}>
         <div>
         <h1
             dangerouslySetInnerHTML={{

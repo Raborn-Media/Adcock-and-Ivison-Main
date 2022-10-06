@@ -24,7 +24,7 @@ const NewsHead = () => {
 
 	return (
 		<div style={{ backgroundImage: "url('/Inthenews.jpg')", backgroundPosition: 'center top 70%', backgroundSize: '100%' }} className={styles.back}>
-			<div className={styles.text}>
+			<div className={styles.text} style={{animation: 'unset'}}>
 				<div>
 					<h1 dangerouslySetInnerHTML={{ __html: newsheader.data.attributes.largeText }}></h1>
 					<p dangerouslySetInnerHTML={{ __html: newsheader.data.attributes.smallText }}></p>

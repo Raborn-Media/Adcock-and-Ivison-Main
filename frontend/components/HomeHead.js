@@ -104,7 +104,7 @@ const HomeHead = () => {
             style={{ backgroundImage: "url('/employment_claims.jpg')" }}
             className={styles.back + " slide"}
           >
-            <div className={styles.text}>
+            <div className={styles.textAnim}>
               <div>
                 <h1
                   dangerouslySetInnerHTML={{

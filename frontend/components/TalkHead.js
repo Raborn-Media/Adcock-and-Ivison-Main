@@ -23,7 +23,7 @@ const TalkHead = () => {
 	}
 	return (
 		<div className={styles.back} style={{ backgroundImage: "url('/Talktous_NEW.jpg')", backgroundPosition: 'center top 55%', backgroundSize: '100%' }}>
-			<div className={styles.text}>
+			<div className={styles.text} style={{animation: 'unset'}}>
 				<div>
 					<h1 dangerouslySetInnerHTML={{__html: contactheader.data.attributes.largeText}}></h1>
 					<p dangerouslySetInnerHTML={{__html: contactheader.data.attributes.smallText}}></p>

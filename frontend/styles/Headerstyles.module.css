@@ -66,19 +66,18 @@
   width: 50%;
   flex-direction: row;
   position: absolute;
-  top: 0;
+  top: 1rem;
   right: 6.5%;
   justify-content: flex-end;
+  align-items: center;
 }
 
 .toprightinfo {
   display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   padding-left: 6rem;
-}
-
-.toprightsvg {
-  position: relative;
-  top: 10px;
 }
 
 .navDropdown {
