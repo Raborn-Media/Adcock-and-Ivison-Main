@@ -235,12 +235,10 @@ const attorneys = () => {
           </div>
           <div className={styles.YApara}>
             <h1 style={{ margin: "0" }}>{attorney.attributes.firstName} {attorney.attributes.middleInitial} {attorney.attributes.lastName} {attorney.attributes.title}</h1>
-            <p style={{ margin: "0", marginBottom: "2rem" }}>
-              <ReactMarkdown>{attorney.attributes.quote}</ReactMarkdown>
+            <p style={{ margin: "0", marginBottom: "2rem" }} dangerouslySetInnerHTML={{__html: attorney.attributes.quote}}>
             </p>
             <h4 style={{ margin: "0" }}>Practice Areas:</h4>
-            <p style={{ margin: "0" }}>
-            <ReactMarkdown>{attorney.attributes.practiceAreas}</ReactMarkdown>
+            <p style={{ margin: "0" }} dangerouslySetInnerHTML={{__html: attorney.attributes.practiceAreas}}>
             </p>
           </div>
         </div>

@@ -12,6 +12,21 @@
   background-color: #979794;
 }
 
+.back::after {
+  content: '';
+  background: linear-gradient(
+    to bottom,
+    #000,
+    #000 50%,
+    transparent 50%,
+    transparent
+  );
+  background-size: 100% 5px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
 @media screen and (min-width: 519px) and (max-width: 926px) {
   .back {
     background-size: 250%;
@@ -33,6 +48,11 @@
   animation-name: fade;
   animation-duration: 10s;
   animation-iteration-count: infinite;
+  z-index: 20;
+}
+
+.aiLogo {
+  z-index: 18;
 }
 
 @keyframes fade {
@@ -180,7 +200,7 @@
 }
 
 .para2 p {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
 @media screen and (min-width: 1135px) and (max-width: 1524px) {
@@ -241,6 +261,7 @@
 
 .para {
   width: 70%;
+  font-size: 1.2rem;
 }
 
 @media screen and (max-width: 899px) {

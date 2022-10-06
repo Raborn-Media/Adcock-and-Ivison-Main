@@ -214,9 +214,7 @@ const Articles = () => {
                     </div>
                     <div className={styles.articleTxt}>
                       <h2>{articlesum.attributes.title}</h2>
-                      <ReactMarkdown>
-                        {articlesum.attributes.summary}
-                      </ReactMarkdown>
+                      <p dangerouslySetInnerHTML={{__html: articlesum.attributes.summary}}></p>
                     </div>
                   </div>
                 </div>
@@ -246,9 +244,7 @@ const Articles = () => {
                     </div>
                     <div className={styles.articleTxt}>
                       <h2>{articlesum.attributes.title}</h2>
-                      <ReactMarkdown>
-                        {articlesum.attributes.summary}
-                      </ReactMarkdown>
+                      <p dangerouslySetInnerHTML={{__html: articlesum.attributes.summary}}></p>
                     </div>
                   </div>
                 </div>

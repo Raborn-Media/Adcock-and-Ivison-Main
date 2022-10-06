@@ -208,7 +208,7 @@ const Cases = () => {
                   </div>
                   <div className={styles.caseTxt}>
                     <h2>{caseSum.attributes.title}</h2>
-                    <ReactMarkdown>{caseSum.attributes.summary}</ReactMarkdown>
+                    <p dangerouslySetInnerHTML={{__html: caseSum.attributes.summary}}></p>
                   </div>
                 </div>
               </div>
@@ -232,7 +232,7 @@ const Cases = () => {
                   </div>
                   <div className={styles.caseTxt}>
                     <h2>{caseSum.attributes.title}</h2>
-                    <ReactMarkdown>{caseSum.attributes.summary}</ReactMarkdown>
+                    <p dangerouslySetInnerHTML={{__html: caseSum.attributes.summary}}></p>
                   </div>
                 </div>
               </div>
