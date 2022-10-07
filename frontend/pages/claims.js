@@ -110,8 +110,7 @@ const claims = () => {
           </svg>
           <div className={styles.sec1Txt}>
             <h3>{claimtext.data.attributes.title}</h3>
-            <p>
-              <ReactMarkdown>{claimtext.data.attributes.content}</ReactMarkdown>
+            <p dangerouslySetInnerHTML={{__html: claimtext.data.attributes.content}}>
             </p>
           </div>
         </div>
