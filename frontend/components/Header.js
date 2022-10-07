@@ -83,7 +83,7 @@ const Header = () => {
               x="0px"
               y="0px"
               viewBox="0 0 397.6 302.4"
-              enable-background="new 0 0 397.6 302.4"
+              enableBackground="new 0 0 397.6 302.4"
               space="preserve"
 			  width="1.5rem"
 			  fill="#fff"

@@ -123,7 +123,7 @@ const attorneys = () => {
                 />
               </svg>
               <div className={styles.email2}>
-                <p>info@adcockandmorrison.com</p>
+                <p>info@adcockandivison.com</p>
               </div>
             </div>
           </div>
