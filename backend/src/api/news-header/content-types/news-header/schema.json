@@ -13,15 +13,15 @@
   "pluginOptions": {},
   "attributes": {
     "largeText": {
-      "type": "richtext",
+      "type": "string",
       "required": true
     },
     "smallText": {
-      "type": "richtext",
+      "type": "string",
       "required": true
     },
     "subHead": {
-      "type": "richtext",
+      "type": "string",
       "required": true
     }
   }

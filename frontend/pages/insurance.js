@@ -90,11 +90,7 @@ const insurance = () => {
           </svg>
           <div className={styles.sec1Txt}>
             <h3>{insurancetext.data.attributes.title}</h3>
-            <p>
-              <ReactMarkdown>
-                {insurancetext.data.attributes.content}
-              </ReactMarkdown>
-            </p>
+            <p dangerouslySetInnerHTML={{__html: insurancetext.data.attributes.content}}></p>
           </div>
         </div>
         <div className={styles.dropdowns}>
@@ -143,9 +139,7 @@ const insurance = () => {
                 </div>
                 {showDropdown == drop.id && (
                   <div className={styles.dropBody}>
-                    <p>
-                      <ReactMarkdown>{drop.attributes.content}</ReactMarkdown>
-                    </p>
+                    <p dangerouslySetInnerHTML={{__html: drop.attributes.content}}></p>
                   </div>
                 )}
               </>
