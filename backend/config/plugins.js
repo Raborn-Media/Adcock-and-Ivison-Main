@@ -18,4 +18,71 @@ module.exports = ({ env }) => ({
   "generate-data": {
     enabled: true,
   },
+  email: {
+    config: {
+      provider: "strapi-provider-email-sendinblue",
+      providerOptions: {
+        sendinblue_api_key: env(
+          "SIB_API_KEY",
+          "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"
+        ),
+        sendinblue_default_replyto: env(
+          "SIB_DEFAULT_REPLY_TO",
+          "no-reply@adcockandivison.com"
+        ),
+        sendinblue_default_from: env(
+          "SIB_DEFAULT_FROM",
+          "no-reply@adcockandivison.com"
+        ),
+        sendinblue_default_from_name: env(
+          "SIB_DEFAULT_FROM_NAME",
+          "Adcock & Ivison PLLC"
+        ),
+      },
+    },
+  },
+  ezforms: {
+    config: {
+      enableFormName: true,
+      captchaProvider: {
+        name: "recaptcha",
+        config: {
+          secretKey: "6LdBLmMiAAAAAIMR2I0ewYJWY8XwSymOiS8d9zto",
+          minimumScore: 0.5,
+        },
+      },
+      notificationProviders: [
+        {
+          name: "email",
+          enabled: true,
+          config: {
+            subject: "New Contact Submission from Adcock & Ivison Website",
+            from: "no-reply@adcockandivison.com",
+          },
+        },
+        {
+          provider: "strapi-provider-email-sendinblue",
+          enabled: true,
+          config: {
+            sendinblue_api_key: env(
+              "SIB_API_KEY",
+              "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"
+            ),
+            sendinblue_default_replyto: env(
+              "SIB_DEFAULT_REPLY_TO",
+              "no-reply@adcockandivison.com"
+            ),
+            sendinblue_default_from: env(
+              "SIB_DEFAULT_FROM",
+              "no-reply@adcockandivison.com"
+            ),
+            sendinblue_default_from_name: env(
+              "SIB_DEFAULT_FROM_NAME",
+              "Adcock & Ivison PLLC"
+            ),
+          },
+        },
+      ],
+    },
+  },
 });

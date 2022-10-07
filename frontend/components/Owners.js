@@ -36,9 +36,7 @@ const Owners = () => {
                   {attorney.attributes.middleInitial}{" "}
                   {attorney.attributes.lastName}
                 </h2>
-                <p>
-                <ReactMarkdown>{attorney.attributes.quote}</ReactMarkdown>
-                </p>
+                <p dangerouslySetInnerHTML={{__html: attorney.attributes.quote}}></p>
                 <p style={{ textDecoration: "underline" }}>Read More</p>
               </div>
             </div>

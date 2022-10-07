@@ -141,7 +141,7 @@ const HomeHead = () => {
                   x="0px"
                   y="0px"
                   viewBox="0 0 186 182"
-                  enable-background="new 0 0 186 182"
+                  enableBackground="new 0 0 186 182"
                   space="preserve"
                   width="4rem"
                 >
@@ -244,7 +244,7 @@ const HomeHead = () => {
                   x="0px"
                   y="0px"
                   viewBox="0 0 186 182"
-                  enable-background="new 0 0 186 182"
+                  enableBackground="new 0 0 186 182"
                   space="preserve"
                   width="4rem"
                 >
@@ -347,7 +347,7 @@ const HomeHead = () => {
                   x="0px"
                   y="0px"
                   viewBox="0 0 186 182"
-                  enable-background="new 0 0 186 182"
+                  enableBackground="new 0 0 186 182"
                   space="preserve"
                   width="4rem"
                 >
@@ -450,7 +450,7 @@ const HomeHead = () => {
                   x="0px"
                   y="0px"
                   viewBox="0 0 186 182"
-                  enable-background="new 0 0 186 182"
+                  enableBackground="new 0 0 186 182"
                   space="preserve"
                   width="4rem"
                 >
@@ -553,7 +553,7 @@ const HomeHead = () => {
                   x="0px"
                   y="0px"
                   viewBox="0 0 186 182"
-                  enable-background="new 0 0 186 182"
+                  enableBackground="new 0 0 186 182"
                   space="preserve"
                   width="4rem"
                 >

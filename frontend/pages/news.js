@@ -5,7 +5,6 @@ import Cases from "../components/Cases";
 import Articles from "../components/Articles";
 import {config} from "../components/Constants"
 import { useEffect, useState } from "react";
-import ReactMarkdown from "react-markdown"
 
 const URL = config.url
 
@@ -42,8 +41,7 @@ const news = () => {
       <Nav />
       <div className={styles.news}>
         <div className={styles.newspara}>
-          <div className={styles.img}>
-            <svg
+          <svg
               version="1.1"
               id="Isolation_Mode"
               xmlns="http://www.w3.org/2000/svg"
@@ -53,7 +51,7 @@ const news = () => {
               viewBox="0 0 246.7 282.2"
               enableBackground="new 0 0 246.7 282.2"
               space="preserve"
-              width={115}
+              width="12rem"
               fill="#002d62"
             >
               <g>
@@ -70,10 +68,10 @@ const news = () => {
                 />
               </g>
             </svg>
+          <div className={styles.newsParaTxt}>
+            <h3>{newstext.data.attributes.title}</h3>
+            <p dangerouslySetInnerHTML={{__html: newstext.data.attributes.content}}></p>
           </div>
-          <h1>{newstext.data.attributes.title}</h1>
-          <p dangerouslySetInnerHTML={{__html: newstext.data.attributes.content}}>
-          </p>
         </div>
       </div>
       <div

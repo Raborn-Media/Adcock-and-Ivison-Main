@@ -27,9 +27,6 @@ const Footer = () => {
               <Link href="/attorneys">YOUR ATTORNEYS</Link>
             </li>
             <li>
-              <Link href="/claims">YOUR CASE</Link>
-            </li>
-            <li>
               <Link href="/news">IN THE NEWS</Link>
             </li>
             <li>
@@ -47,7 +44,7 @@ const Footer = () => {
               x="0px"
               y="0px"
               viewBox="0 0 112.7 84.5"
-              enable-background="new 0 0 112.7 84.5"
+              enableBackground="new 0 0 112.7 84.5"
               space="preserve"
               width="8rem"
             >
@@ -101,7 +98,7 @@ const Footer = () => {
                 x="0px"
                 y="0px"
                 viewBox="0 0 79 66.5"
-                enable-background="new 0 0 79 66.5"
+                enableBackground="new 0 0 79 66.5"
                 space="preserve"
                 width="7rem"
               >
@@ -406,9 +403,6 @@ const Footer = () => {
               <p> FAX: 601.898.9860</p>
             </div>
             <div>
-              <p> EMAIL: kadcock@adcocklawgroup.com</p>
-            </div>
-            <div>
               <p style={{ margin: "0" }}>
                 RIDGELAND OFFICE: 795 WOODLANDS PARKWAY, SUITE 220
               </p>
@@ -423,7 +417,7 @@ const Footer = () => {
                 <a href={adminURL} target="_blank" style={{ cursor: "text" }}>
                   &copy; {new Date().getFullYear()}
                 </a>{" "}
-                Adcock & Ivison, PLLC, All Rights Reserved, Disclaimer. | Site
+                Adcock &amp; Ivison, PLLC, All Rights Reserved. | Site
                 Designed, Developed and Brought to Life by
                 <a href="https://liquid-creative.com" target={"_blank"}>
                   {" "}
@@ -440,16 +434,16 @@ const Footer = () => {
                 color: "#81817b",
               }}
             >
-              LATEST CASE STUDIES
+              PRACTICE AREAS
             </p>
           </div>
           <div>
-            <ul>
-              <li>CONSTRUCTION ACCIDENTS</li>
-              <li>OILFIELD ACCIDENTS</li>
-              <li>PHARMACEUTICAL CASES</li>
-              <li>INSURANCE LAW</li>
-              <li>BUSINESS V. BUSINESS</li>
+            <ul className={styles.rightNav}>
+              <Link href={'/claims'}><li>EMPLOYMENT CLAIMS</li></Link>
+              <Link href={'/injury'}><li>PERSONAL INJURY</li></Link>
+              <Link href={'/medical'}><li>MEDICAL</li></Link>
+              <Link href={'/business'}><li>BUSINESS</li></Link>
+              <Link href={'/insurance'}><li>INSURANCE</li></Link>
             </ul>
           </div>
         </div>

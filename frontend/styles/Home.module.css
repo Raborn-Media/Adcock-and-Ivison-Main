@@ -156,13 +156,24 @@
   align-items: center;
   flex-direction: column;
   text-align: center;
-  width: 357px;
+  width: 20%;
   cursor: pointer;
 }
 
 @media screen and (max-width: 1784px) {
   .btmbar {
     margin-top: 2rem;
+  }
+}
+
+@media screen and (min-width: 550px) and (max-width: 840px) {
+  .btmbar {
+    width: 33%;
+  }
+}
+@media screen and (max-width: 549px) {
+  .btmbar {
+    width: 50%;
   }
 }
 
