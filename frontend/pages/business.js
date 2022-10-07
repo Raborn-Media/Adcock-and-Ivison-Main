@@ -81,11 +81,7 @@ const business = () => {
           </svg>
           <div className={styles.sec1Txt}>
             <h3>{businesstext.data.attributes.title}</h3>
-            <p>
-              <ReactMarkdown>
-                {businesstext.data.attributes.content}
-              </ReactMarkdown>
-            </p>
+            <p dangerouslySetInnerHTML={{__html: businesstext.data.attributes.content}}></p>
           </div>
         </div>
         <div className={styles.dropdowns}>
@@ -134,9 +130,7 @@ const business = () => {
                 </div>
                 {showDropdown == drop.id && (
                   <div className={styles.dropBody}>
-                    <p>
-                      <ReactMarkdown>{drop.attributes.content}</ReactMarkdown>
-                    </p>
+                    <p dangerouslySetInnerHTML={{__html: drop.attributes.content}}></p>
                   </div>
                 )}
               </>

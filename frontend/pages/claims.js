@@ -160,9 +160,7 @@ const claims = () => {
                 </div>
                 {showDropdown == drop.id && (
                   <div className={styles.dropBody}>
-                    <p>
-                      <ReactMarkdown>{drop.attributes.content}</ReactMarkdown>
-                    </p>
+                    <p dangerouslySetInnerHTML={{__html: drop.attributes.content}}></p>
                   </div>
                 )}
               </>

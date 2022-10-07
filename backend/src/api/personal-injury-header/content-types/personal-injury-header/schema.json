@@ -4,7 +4,8 @@
   "info": {
     "singularName": "personal-injury-header",
     "pluralName": "personal-injury-headers",
-    "displayName": "Personal Injury-Header"
+    "displayName": "Personal Injury-Header",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -12,15 +13,15 @@
   "pluginOptions": {},
   "attributes": {
     "largeText": {
-      "type": "richtext",
+      "type": "string",
       "required": true
     },
     "smallText": {
-      "type": "richtext",
+      "type": "string",
       "required": true
     },
     "subHeader": {
-      "type": "richtext",
+      "type": "string",
       "required": true
     }
   }

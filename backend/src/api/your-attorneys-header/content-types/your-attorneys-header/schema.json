@@ -4,7 +4,8 @@
   "info": {
     "singularName": "your-attorneys-header",
     "pluralName": "your-attorneys-headers",
-    "displayName": "Your Attorneys - Header"
+    "displayName": "Your Attorneys - Header",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -12,15 +13,15 @@
   "pluginOptions": {},
   "attributes": {
     "largeText": {
-      "type": "richtext",
+      "type": "string",
       "required": true
     },
     "smallText": {
-      "type": "richtext",
+      "type": "string",
       "required": true
     },
     "subHead": {
-      "type": "richtext",
+      "type": "string",
       "required": true
     }
   }

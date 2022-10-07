@@ -106,7 +106,7 @@ const injury = () => {
           </svg>
           <div className={styles.sec1Txt}>
             <h3>{injurytext.data.attributes.title}</h3>
-            <ReactMarkdown>{injurytext.data.attributes.content}</ReactMarkdown>
+            <p dangerouslySetInnerHTML={{__html: injurytext.data.attributes.content}}></p>
           </div>
         </div>
         <div className={styles.dropdowns}>
@@ -155,9 +155,7 @@ const injury = () => {
                 </div>
                 {showDropdown == drop.id && (
                   <div className={styles.dropBody}>
-                    <p>
-                      <ReactMarkdown>{drop.attributes.content}</ReactMarkdown>
-                    </p>
+                    <p dangerouslySetInnerHTML={{__html: drop.attributes.content}}></p>
                   </div>
                 )}
               </>
