@@ -150,6 +150,7 @@ const Product = () => {
               {claimsDrop.data.map((claim) => {
                 return (
                   <div
+                    key={claim.id}
                     style={{
                       display: "flex",
                       justifyContent: "flex-start",
@@ -180,6 +181,7 @@ const Product = () => {
               {injuryDrop.data.map((injury) => {
                 return (
                   <div
+                    key={injury.id}
                     style={{
                       display: "flex",
                       justifyContent: "flex-start",
@@ -210,6 +212,7 @@ const Product = () => {
               {medicalsDrop.data.map((medical) => {
                 return (
                   <div
+                    key={medical.id}
                     style={{
                       display: "flex",
                       justifyContent: "flex-start",
@@ -240,6 +243,7 @@ const Product = () => {
               {businessDrop.data.map((business) => {
                 return (
                   <div
+                    key={business.id}
                     style={{
                       display: "flex",
                       justifyContent: "flex-start",
@@ -270,6 +274,7 @@ const Product = () => {
               {insuranceDrop.data.map((insurance) => {
                 return (
                   <div
+                    key={insurance.id}
                     style={{
                       display: "flex",
                       justifyContent: "flex-start",
