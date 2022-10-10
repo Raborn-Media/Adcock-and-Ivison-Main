@@ -27,7 +27,7 @@ const Owners = () => {
     <div className={styles.owners}>
       {attorneys.data.map((attorney) => {
         return (
-          <div className={styles.bp}>
+          <div key={attorney.id} className={styles.bp}>
             <div className={styles.person}>
             <Image src={attorney.attributes.headshot.data.attributes.url} width={200} height={200} />
               <div style={{ color: "#fff" }}>

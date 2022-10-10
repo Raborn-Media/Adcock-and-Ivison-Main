@@ -64,6 +64,7 @@ const Header = () => {
             <p>PHONE: 601.898.9887</p>
           </div>
         </div>
+        {/* Header Menu */}
         <ul>
           <li>
             <Link href="/">HOME</Link>
