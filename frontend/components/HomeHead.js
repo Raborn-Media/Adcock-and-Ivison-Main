@@ -85,7 +85,7 @@ const HomeHead = () => {
 					animation-duration: 1s;
 					animation-fill-mode: forwards;
 					width: 100%;
-          height: 100%;
+					height: 100%;
 					position: absolute;
 					top: 0;
 				}
@@ -107,12 +107,13 @@ const HomeHead = () => {
 					0% {
 						right: 0;
 					}
-          99% {
-            width: 100%;
-          }
+					99% {
+						width: 100%;
+					}
 					100% {
 						right: 100%;
-            width: 0;
+						width: 0;
+						visibility: hidden;
 					}
 				}
 				.slider {
@@ -122,7 +123,7 @@ const HomeHead = () => {
 					overflow: hidden;
 					width: 100vw;
 					position: relative;
-          height: 82vh;
+					height: 82vh;
 				}
 			`}</style>
 			<div className='slider'>
