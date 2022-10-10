@@ -104,6 +104,29 @@
 }
 
 @media screen and (max-width: 1029px) {
+  .textAnim h1 {
+    font-size: 3rem;
+  }
+
+  .textAnim p:nth-of-type(1) {
+    font-size: 1.5rem;
+  }
+
+  .textAnim p:nth-of-type(2) {
+    font-size: 1rem;
+  }
+  .textAnim {
+    margin-left: 2rem;
+  }
+}
+
+@media screen and (max-width: 764px) {
+  .textAnim {
+    margin-left: 1rem;
+  }
+}
+
+@media screen and (max-width: 1029px) {
   .text h1 {
     font-size: 3rem;
   }
