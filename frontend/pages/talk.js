@@ -11,12 +11,12 @@ const URL = config.url
 
 const FormOne = () => {
 
-	const [fName, setFName] = useState('first name')
-	const [lName, setLName] = useState('last name')
-	const [email, setEmail] = useState('email')
-	const [phone, setPhone] = useState('phone')
-	const [interest, setInterest] = useState('interest')
-	const [message, setMessage] = useState('message')
+	const [fName, setFName] = useState('')
+	const [lName, setLName] = useState('')
+	const [email, setEmail] = useState('')
+	const [phone, setPhone] = useState('')
+	const [interest, setInterest] = useState('')
+	const [message, setMessage] = useState('')
 
 	const [submitted, setSubmitted] = useState(false)
 
@@ -35,32 +35,32 @@ const FormOne = () => {
 			}
 			executeRecaptcha('enquiryFormSubmit').then((gReCaptchaToken) => {
 				console.log(gReCaptchaToken, 'response Google reCaptcha server')
-				verifyToken(gReCaptchaToken)
+				submitFormOne(gReCaptchaToken)
 			})
 		},
 		[executeRecaptcha]
 	)
 
-	const verifyToken = (gReCaptchaToken) => {
-		fetch('/api/verify', {
-			method: 'POST',
-			headers: {
-				Accept: 'application/json, text/plain, */*',
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify({ gRecaptchaToken: gReCaptchaToken }),
-		})
-			.then((res) => res.json())
-			.then((res) => {
-				console.log(res, 'response from backend')
-				if (res?.status === 'success') {
-					setNotification(res?.message)
-					submitFormOne(gReCaptchaToken)
-				} else {
-					setNotification(res?.message)
-				}
-			})
-	}
+	// const verifyToken = (gReCaptchaToken) => {
+	// 	fetch('/api/verify', {
+	// 		method: 'POST',
+	// 		headers: {
+	// 			Accept: 'application/json, text/plain, */*',
+	// 			'Content-Type': 'application/json',
+	// 		},
+	// 		body: JSON.stringify({ gRecaptchaToken: gReCaptchaToken }),
+	// 	})
+	// 		.then((res) => res.json())
+	// 		.then((res) => {
+	// 			console.log(res, 'response from backend')
+	// 			if (res?.status === 'success') {
+	// 				setNotification(res?.message)
+	// 				submitFormOne(gReCaptchaToken)
+	// 			} else {
+	// 				setNotification(res?.message)
+	// 			}
+	// 		})
+	// }
 
 	const submitFormOne = async (token) => {
 
