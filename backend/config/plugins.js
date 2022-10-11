@@ -47,8 +47,7 @@ module.exports = ({ env }) => ({
       captchaProvider: {
         name: "recaptcha",
         config: {
-          secretKey: "6LdBLmMiAAAAAIMR2I0ewYJWY8XwSymOiS8d9zto",
-          minimumScore: 0.5,
+          secretKey: "6LclwG4iAAAAAD7jSw2VSc_Iooms2wMlsonTSetI",
         },
       },
       notificationProviders: [
@@ -56,7 +55,7 @@ module.exports = ({ env }) => ({
           name: "email",
           enabled: true,
           config: {
-            subject: "New Contact Submission from Adcock & Ivison Website",
+            subject: "New Form Submission from Adcock & Ivison Website",
             from: "no-reply@adcockandivison.com",
           },
         },
