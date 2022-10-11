@@ -1,5 +1,8 @@
-const handler = (req, res) => {
+export default async function handler(req, res) {
+	console.log('start verify.js')
+	console.log(req.method)
 	if (req.method === 'POST') {
+		console.log('enter if')
 		try {
 			fetch('https://www.google.com/recaptcha/api/siteverify', {
 				method: 'POST',
@@ -9,6 +12,7 @@ const handler = (req, res) => {
 				body: `secret=${process.env.REACT_APP_SECRET_KEY}&response=${req.body.gRecaptchaToken}`,
 			})
 				.then((reCaptchaRes) => reCaptchaRes.json())
+				.then(console.log('fetched captcha api'))
 				.then((reCaptchaRes) => {
 					console.log(reCaptchaRes, 'Response from Google reCaptcha verification API')
 					if (reCaptchaRes?.score > 0.5) {
@@ -30,10 +34,11 @@ const handler = (req, res) => {
 				message: 'Error submitting the contact form',
 			})
 		}
-	} else {
+	}
+	else {
+		console.log('enter else')
 		res.status(405)
 		res.end()
 	}
 }
 
-export default handler

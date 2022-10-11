@@ -29,6 +29,7 @@ const FormOne = () => {
 	const handleSubmitForm = useCallback(
 		(e) => {
 			e.preventDefault()
+			console.log('start')
 			if (!executeRecaptcha) {
 				console.log('Execute recaptcha not yet available')
 				return
@@ -42,23 +43,25 @@ const FormOne = () => {
 	)
 
 	const verifyToken = (gReCaptchaToken) => {
-		fetch('/api/verify', {
+		console.log('verify token')
+		fetch('/captcha/verify', {
 			method: 'POST',
 			headers: {
 				Accept: 'application/json, text/plain, */*',
 				'Content-Type': 'application/json',
 			},
-			body: JSON.stringify({
-				gRecaptchaToken: gReCaptchaToken,
-			}),
+			body: { gRecaptchaToken: gReCaptchaToken },
 		})
 			.then((res) => res.json())
+			.then(console.log('back from verify.js'))
 			.then((res) => {
 				console.log(res, 'response from backend')
 				if (res?.status === 'success') {
 					setNotification(res?.message)
+					console.log('status = success')
 					submitFormOne(gReCaptchaToken)
 				} else {
+					console.log('status = !success')
 					setNotification(res?.message)
 				}
 			})
@@ -80,7 +83,6 @@ const FormOne = () => {
 			await axios
 			.post(`${URL}/ezforms/submit`, { token: token, formName: 'Contact Form', formData: form })
 			.then((res) => res.json())
-			
 			.then((data) => console.log(data))
 			.catch((error) => {
 				console.log(error)
