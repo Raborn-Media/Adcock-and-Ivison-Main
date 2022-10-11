@@ -1,5 +1,5 @@
 const prod = {
-	url: 'https://adcock-and-ivison-uunx5.ondigitalocean.app/api/api',
+	url: 'https://adcock-and-ivison-uunx5.ondigitalocean.app/strapi/api',
 }
 
 const dev = {
