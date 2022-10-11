@@ -80,14 +80,14 @@ const FormOne = () => {
 				.then((res) => res.json())
 				.then((data) => console.log(data))
 				.catch((error) => {
-					console.log(error.message)
+					console.log(error)
 				})
 				.finally(() => {
 					setSubmitted(true)
 				})
 		}
 		catch (error) {
-			console.log(error.message)
+			console.log(error)
 		}
 	}
 
