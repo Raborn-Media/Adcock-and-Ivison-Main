@@ -5,14 +5,28 @@ import styles from '../styles/talk.module.css'
 import { config } from '../components/Constants'
 import { useEffect, useState, useCallback } from 'react'
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
+import axios from 'axios'
 
 const URL = config.url
 
 const FormOne = () => {
 
-  const { executeRecaptcha } = useGoogleReCaptcha()
+	const [fName, setFName] = useState('')
+	const [lName, setLName] = useState('')
+	const [email, setEmail] = useState('')
+	const [phone, setPhone] = useState('')
+	const [interest, setInterest] = useState('')
+	const [message, setMessage] = useState('')
 
-  const handleSubmitForm = useCallback(
+	const [submitted, setSubmitted] = useState(false)
+
+	const [bot, setBot] = useState(true)
+
+	const [notification, setNotification] = useState('')
+
+	const { executeRecaptcha } = useGoogleReCaptcha()
+
+	const handleSubmitForm = useCallback(
 		(e) => {
 			e.preventDefault()
 			if (!executeRecaptcha) {
@@ -21,22 +35,37 @@ const FormOne = () => {
 			}
 			executeRecaptcha('enquiryFormSubmit').then((gReCaptchaToken) => {
 				console.log(gReCaptchaToken, 'response Google reCaptcha server')
-				submitFormOne(gReCaptchaToken)
+				verifyToken(gReCaptchaToken)
 			})
 		},
 		[executeRecaptcha]
 	)
 
-  const [fName, setFName] = useState('')
-	const [lName, setLName] = useState('')
-	const [email, setEmail] = useState('')
-	const [phone, setPhone] = useState('')
-	const [interest, setInterest] = useState('')
-  const [message, setMessage] = useState('')
-  
-  const [submitted, setSubmitted] = useState(false)
+	const verifyToken = (gReCaptchaToken) => {
+		fetch('/api/verify', {
+			method: 'POST',
+			headers: {
+				Accept: 'application/json, text/plain, */*',
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({
+				gRecaptchaToken: gReCaptchaToken,
+			}),
+		})
+			.then((res) => res.json())
+			.then((res) => {
+				console.log(res, 'response from backend')
+				if (res?.status === 'success') {
+					setNotification(res?.message)
+					submitFormOne(gReCaptchaToken)
+				} else {
+					setNotification(res?.message)
+				}
+			})
+	}
 
-	const submitFormOne = (gReCaptchaToken) => {
+	const submitFormOne = async (token) => {
+
 		const form = {
 			"Submission Info": "<br /><br />",
 			"First Name": `${fName}<br \/>`,
@@ -46,20 +75,35 @@ const FormOne = () => {
 			"Interested In": `${interest}<br \/>`,
 			"Message": `${message}<br \/>`,
 		}
-		const token = gReCaptchaToken
 
-		fetch(`${URL}/ezforms/submit`, {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify({ formData: form }),
-      formData: form,
-      token,
-		})
-			.then((response) => response.json())
+		try {
+			await axios
+			.post(`${URL}/ezforms/submit`, { token: token, formName: 'Contact Form', formData: form })
+			.then((res) => res.json())
+			
 			.then((data) => console.log(data))
-    setSubmitted(true)
+			.catch((error) => {
+				console.log(error)
+			})
+			.finally(() => {
+				setSubmitted(true)
+			})
+		}
+		catch (error) {
+			console.log(error)
+		}
+
+		// fetch(`${URL}/ezforms/submit`, {
+		// 	method: 'POST',
+		// 	headers: {
+		// 		'Content-Type': 'application/json',
+		// 	},
+		// 	body: JSON.stringify({ formData: form, formName: 'Contact Form' }),
+		// 	formData: form,
+		// })
+		// 	.then((response) => response.json())
+		// 	.then((data) => console.log(data))
+		// setSubmitted(true)
 	}
 
 	if (submitted) {
@@ -68,8 +112,8 @@ const FormOne = () => {
 				<h3>Thank you! We'll be in touch shortly.</h3>
 			</div>
 		)
-  }
-  
+	}
+
 	return (
 		<form onSubmit={handleSubmitForm}>
 			<div className={styles.formLeft}>
@@ -91,6 +135,7 @@ const FormOne = () => {
 					<option value={'Insurance Litigation'}>Insurance Litigation</option>
 					<option value={'Other'}>Other</option>
 				</select>
+				{notification && <p>{notification}</p>}
 				<button className={styles.btn1} type='submit'>
 					Submit
 				</button>
@@ -100,48 +145,51 @@ const FormOne = () => {
 }
 
 const FormTwo = () => {
-  const [fName, setFName] = useState('')
-  const [lName, setLName] = useState('')
+	const [fName, setFName] = useState('')
+	const [lName, setLName] = useState('')
 	const [email, setEmail] = useState('')
-  const [phone, setPhone] = useState('')
-  const [resume, setResume] = useState('')
+	const [phone, setPhone] = useState('')
+	const [resume, setResume] = useState('')
 	const [message, setMessage] = useState('')
 
-  const [submitted, setSubmitted] = useState(false)
-  
-  const submitFormTwo = async => {
-    let form = {
+	const [submitted, setSubmitted] = useState(false)
+
+	const [bot, setBot] = useState(true)
+
+	const submitFormTwo = async () => {
+
+		let form = {
 			"Submission Info": "<br /><br />",
 			"First Name": `${fName}<br \/>`,
 			"Last Name": `${lName}<br \/>`,
 			"Email": `${email}<br \/>`,
 			"Phone": `${phone}<br \/>`,
-			"Resume": `${resume}<br \/>`,
 			"Message": `${message}<br \/>`,
+			"Resume": `${resume}`
 		}
-    let token = ''
-    
-     fetch(`${URL}/ezforms/submit`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({token, formData: form}),
-      formData: form,
-    }).then(response => response.json())
-      .then(data => console.log(data));
-    setSubmitted(true)
-  }
 
-  if (submitted) {
-    return (
+		fetch(`${URL}/ezforms/submit`, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({ formData: form, formName: 'Careers Form' }),
+			formData: form,
+		})
+			.then((response) => response.json())
+			.then((data) => console.log(data))
+		setSubmitted(true)
+	}
+
+	if (submitted) {
+		return (
 			<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
 				<h3>Thank you! We'll be in touch shortly.</h3>
 			</div>
 		)
-  }
-  
-  return (
+	}
+
+	return (
 		<form onSubmit={submitFormTwo} method='POST'>
 			<div className={styles.formLeft}>
 				<input type='text' name='fName' placeholder='First Name' onChange={(e) => setFName(e.target.value)} required />
@@ -151,7 +199,7 @@ const FormTwo = () => {
 			<div className={styles.formRight}>
 				<input type='text' name='lName' placeholder='Last Name' onChange={(e) => setLName(e.target.value)} required />
 				<input type='tel' name='phone' placeholder='Phone' onChange={(e) => setPhone(e.target.value)} required />
-				<input className={styles.fileUplaod} type={'file'} name='resume' onChange={(e) => setResume(e.target.value)} required />
+				<input className={styles.fileUplaod} type={'file'} name='resume' onChange={(e) => setResume(e.target.files[0])} required />
 				<button className={styles.btn2} type='submit'>
 					Submit
 				</button>

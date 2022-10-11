@@ -364,14 +364,14 @@
 .product {
   display: flex;
   flex-direction: column;
-  width: 70%;
+  width: 50%;
   background-color: #002d62;
   border-radius: 25px;
   color: #fff;
   padding: 1rem;
   margin: 0;
   font-size: 1.2rem;
-  min-height: 250px;
+  min-height: 200px;
 }
 
 .product li {
