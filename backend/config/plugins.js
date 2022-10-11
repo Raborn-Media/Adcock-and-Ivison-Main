@@ -48,6 +48,7 @@ module.exports = ({ env }) => ({
         name: "recaptcha",
         config: {
           secretKey: "6LclwG4iAAAAAD7jSw2VSc_Iooms2wMlsonTSetI",
+          minimumScore: 0.5,
         },
       },
       notificationProviders: [

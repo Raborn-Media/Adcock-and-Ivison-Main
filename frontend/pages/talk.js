@@ -11,12 +11,12 @@ const URL = config.url
 
 const FormOne = () => {
 
-	const [fName, setFName] = useState('')
-	const [lName, setLName] = useState('')
-	const [email, setEmail] = useState('')
-	const [phone, setPhone] = useState('')
-	const [interest, setInterest] = useState('')
-	const [message, setMessage] = useState('')
+	const [fName, setFName] = useState('first name')
+	const [lName, setLName] = useState('last name')
+	const [email, setEmail] = useState('email')
+	const [phone, setPhone] = useState('phone')
+	const [interest, setInterest] = useState('interest')
+	const [message, setMessage] = useState('message')
 
 	const [submitted, setSubmitted] = useState(false)
 
@@ -29,7 +29,6 @@ const FormOne = () => {
 	const handleSubmitForm = useCallback(
 		(e) => {
 			e.preventDefault()
-			console.log('start')
 			if (!executeRecaptcha) {
 				console.log('Execute recaptcha not yet available')
 				return
@@ -43,25 +42,21 @@ const FormOne = () => {
 	)
 
 	const verifyToken = (gReCaptchaToken) => {
-		console.log('verify token')
-		fetch('/captcha/verify', {
+		fetch('/api/verify', {
 			method: 'POST',
 			headers: {
 				Accept: 'application/json, text/plain, */*',
 				'Content-Type': 'application/json',
 			},
-			body: { gRecaptchaToken: gReCaptchaToken },
+			body: JSON.stringify({ gRecaptchaToken: gReCaptchaToken }),
 		})
 			.then((res) => res.json())
-			.then(console.log('back from verify.js'))
 			.then((res) => {
 				console.log(res, 'response from backend')
 				if (res?.status === 'success') {
 					setNotification(res?.message)
-					console.log('status = success')
 					submitFormOne(gReCaptchaToken)
 				} else {
-					console.log('status = !success')
 					setNotification(res?.message)
 				}
 			})
@@ -81,31 +76,19 @@ const FormOne = () => {
 
 		try {
 			await axios
-			.post(`${URL}/ezforms/submit`, { token: token, formName: 'Contact Form', formData: form })
-			.then((res) => res.json())
-			.then((data) => console.log(data))
-			.catch((error) => {
-				console.log(error)
-			})
-			.finally(() => {
-				setSubmitted(true)
-			})
+				.post(`${URL}/ezforms/submit`, { token, formName: 'Contact Form', formData: form })
+				.then((res) => res.json())
+				.then((data) => console.log(data))
+				.catch((error) => {
+					console.log(error.message)
+				})
+				.finally(() => {
+					setSubmitted(true)
+				})
 		}
 		catch (error) {
-			console.log(error)
+			console.log(error.message)
 		}
-
-		// fetch(`${URL}/ezforms/submit`, {
-		// 	method: 'POST',
-		// 	headers: {
-		// 		'Content-Type': 'application/json',
-		// 	},
-		// 	body: JSON.stringify({ formData: form, formName: 'Contact Form' }),
-		// 	formData: form,
-		// })
-		// 	.then((response) => response.json())
-		// 	.then((data) => console.log(data))
-		// setSubmitted(true)
 	}
 
 	if (submitted) {
