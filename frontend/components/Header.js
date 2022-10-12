@@ -153,7 +153,7 @@ const Header = () => {
 					
 					.navigation{
 						width: 100%;
-						height: 50px;
+						height: 20vh;
 						display: none;
 					}
 					
