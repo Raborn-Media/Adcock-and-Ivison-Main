@@ -10,6 +10,7 @@ const Header = () => {
 
 	const [headClass, setHeadClass] = useState(styles.header);
 	const [navClass, setNavClass] = useState(styles.navList);
+
 	const [hamburgerOpen, setHamburgerOpen] = useState(false)
 
 	const toggleHamburger = () => {
@@ -96,7 +97,6 @@ const Header = () => {
 					</li>
 				</ul>
 
-				
 				<div className="navigation">
 					<ul className="navUl">
 					<li>
@@ -105,13 +105,20 @@ const Header = () => {
 					<li>
 						<Link href='/attorneys'>YOUR ATTORNEYS</Link>
 					</li>
+					<li>
+						<Link href='/news'>IN THE NEWS</Link>
+					</li>
+					<li>
+						<Link href='/talk'>TALK TO US</Link>
+					</li>
+
 					<li style={{ position: 'relative', cursor: 'pointer' }} onClick={() => setShowDropNav(!showDropNav)}>
 						<svg version='1.1' id='Isolation_Mode' xmlns='http://www.w3.org/2000/svg' xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 397.6 302.4' enableBackground='new 0 0 397.6 302.4' space='preserve' width='1.5rem' fill='#fff' style={{ marginBottom: '-0.2rem', marginRight: '0.2rem' }}>
 							<polygon points='207.8,264.3 208,264.5 351.9,120.6 306,74.7 207.8,173 109.5,74.7 63.6,120.6 207.6,264.5 ' />
 						</svg>
 						YOUR CASE &#10148;
 						<div className={styles.navDropdown2} style={{ display: showDropNav ? '' : 'none' }}>
-							<ul className={navClass}>
+							<ul className={navClass} class="navDropdown2">
 								<Link href={'/claims'}>
 									<li>&bull; Employment Claims</li>
 								</Link>
@@ -130,13 +137,6 @@ const Header = () => {
 							</ul>
 						</div>
 					</li>
-					<li>
-						<Link href='/news'>IN THE NEWS</Link>
-					</li>
-					<li>
-						<Link href='/talk'>TALK TO US</Link>
-					</li>
-
 						
 					</ul>
 						<div className="hamburger" onClick={toggleHamburger}>
@@ -153,7 +153,7 @@ const Header = () => {
 					
 					.navigation{
 						width: 100%;
-						height: 20vh;
+						height: 100%;
 						display: none;
 					}
 					
@@ -189,10 +189,10 @@ const Header = () => {
 						.navigation ul{
 							display: ${hamburgerOpen ? 'inline' : 'none'};
 							background-color: white;
-							height: 20vh;
+							height: 100%;
 							width: 100vw;
 							margin-top: 50px;
-							position: fixed;
+							position: relative;
 							
 						}
 
@@ -208,6 +208,8 @@ const Header = () => {
 							border: 1px solid black;
 							transition: 0.2s ease;
 						}
+
+						.
 					}
 					
 					
