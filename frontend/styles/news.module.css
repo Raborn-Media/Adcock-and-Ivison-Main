@@ -88,3 +88,38 @@
   top: 40%;
   bottom: 40%;
 }
+
+@media (max-width: 800px) {
+  .infoBar {
+    margin-right: 5%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .attorneybar {
+    width: 70%;
+  }
+}
+
+@media (max-width: 800px) {
+  .attorneybar {
+    width: 80%;
+  }
+}
+
+@media (max-width: 600px) {
+  .attorneybar {
+    width: 90%;
+  }
+
+  .newsParaTxt {
+    width: 70%;
+  }
+}
+
+@media (max-width: 450px) {
+  .attorneybar {
+    width: 120%;
+    margin-right: -90px;
+  }
+}
