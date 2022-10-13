@@ -23,7 +23,7 @@ const YourHead = () => {
   }
   return (
     <div
-      style={{ backgroundImage: "url('/Attorneys.jpg')", backgroundPosition: 'center top 50%', backgroundSize: "100%" }}
+      style={{ backgroundImage: "url('/group_shot.jpg')", backgroundPosition: 'center top 50%', backgroundSize: "100%" }}
       className={styles.back}
     >
       <div className={styles.text} style={{animation: 'unset'}}>

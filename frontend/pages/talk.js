@@ -3,8 +3,9 @@ import TalkHead from '../components/TalkHead'
 import Nav from '../components/Nav'
 import styles from '../styles/talk.module.css'
 import { config } from '../components/Constants'
-import { useEffect, useState, useCallback } from 'react'
-import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
+import { useEffect, useState } from 'react'
+{/*import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'*/ }
+import Captcha from 'react-google-recaptcha'
 import axios from 'axios'
 
 const URL = config.url
@@ -22,24 +23,22 @@ const FormOne = () => {
 
 	const [bot, setBot] = useState(true)
 
-	const [notification, setNotification] = useState('')
+	{/*const { executeRecaptcha } = useGoogleReCaptcha()*/}
 
-	const { executeRecaptcha } = useGoogleReCaptcha()
-
-	const handleSubmitForm = useCallback(
-		(e) => {
-			e.preventDefault()
-			if (!executeRecaptcha) {
-				console.log('Execute recaptcha not yet available')
-				return
-			}
-			executeRecaptcha('enquiryFormSubmit').then((gReCaptchaToken) => {
-				console.log(gReCaptchaToken, 'response Google reCaptcha server')
-				submitFormOne(gReCaptchaToken)
-			})
-		},
-		[executeRecaptcha]
-	)
+	// const handleSubmitForm = useCallback(
+	// 	(e) => {
+	// 		e.preventDefault()
+	// 		if (!executeRecaptcha) {
+	// 			console.log('Execute recaptcha not yet available')
+	// 			return
+	// 		}
+	// 		executeRecaptcha('enquiryFormSubmit').then((gReCaptchaToken) => {
+	// 			console.log(gReCaptchaToken, 'response Google reCaptcha server')
+	// 			submitFormOne(gReCaptchaToken)
+	// 		})
+	// 	},
+	// 	[executeRecaptcha]
+	// )
 
 	// const verifyToken = (gReCaptchaToken) => {
 	// 	fetch('/api/verify', {
@@ -62,9 +61,9 @@ const FormOne = () => {
 	// 		})
 	// }
 
-	const submitFormOne = async (token) => {
+	const submitFormOne = async () => {
 
-		const form = {
+		let form = {
 			"Submission Info": "<br /><br />",
 			"First Name": `${fName}<br \/>`,
 			"Last Name": `${lName}<br \/>`,
@@ -74,21 +73,17 @@ const FormOne = () => {
 			"Message": `${message}<br \/>`,
 		}
 
-		try {
-			await axios
-				.post(`${URL}/ezforms/submit`, { token, formName: 'Contact Form', formData: form })
-				.then((res) => res.json())
-				.then((data) => console.log(data))
-				.catch((error) => {
-					console.log(error)
-				})
-				.finally(() => {
-					setSubmitted(true)
-				})
-		}
-		catch (error) {
-			console.log(error)
-		}
+		fetch(`${URL}/ezforms/submit`, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({ formData: form, formName: 'Contact Form' }),
+			formData: form,
+		})
+			.then((response) => response.json())
+			.then((data) => console.log(data))
+		setSubmitted(true)
 	}
 
 	if (submitted) {
@@ -100,7 +95,7 @@ const FormOne = () => {
 	}
 
 	return (
-		<form onSubmit={handleSubmitForm}>
+		<form onSubmit={submitFormOne}>
 			<div className={styles.formLeft}>
 				<input type='text' name='fName' placeholder='First Name' onChange={(e) => setFName(e.target.value)} required />
 				<input type='email' name='email' placeholder='Email' onChange={(e) => setEmail(e.target.value)} required />
@@ -120,8 +115,8 @@ const FormOne = () => {
 					<option value={'Insurance Litigation'}>Insurance Litigation</option>
 					<option value={'Other'}>Other</option>
 				</select>
-				{notification && <p>{notification}</p>}
-				<button className={styles.btn1} type='submit'>
+				<Captcha sitekey={process.env.V_TWO_SITE_KEY} onChange={() => setBot(!bot)} />
+				<button className={styles.btn1} type='submit' disabled={bot}>
 					Submit
 				</button>
 			</div>
@@ -140,6 +135,23 @@ const FormTwo = () => {
 	const [submitted, setSubmitted] = useState(false)
 
 	const [bot, setBot] = useState(true)
+
+	// const { executeRecaptcha2 } = useGoogleReCaptcha()
+
+	// const handleSubmitForm2 = useCallback(
+	// 	(e) => {
+	// 		e.preventDefault()
+	// 		if (!executeRecaptcha2) {
+	// 			console.log('Execute recaptcha not yet available')
+	// 			return
+	// 		}
+	// 		executeRecaptcha2('enquiryFormSubmit').then((gReCaptchaToken) => {
+	// 			console.log(gReCaptchaToken, 'response Google reCaptcha server')
+	// 			submitFormTwo(gReCaptchaToken)
+	// 		})
+	// 	},
+	// 	[executeRecaptcha2]
+	// )
 
 	const submitFormTwo = async () => {
 
@@ -185,7 +197,8 @@ const FormTwo = () => {
 				<input type='text' name='lName' placeholder='Last Name' onChange={(e) => setLName(e.target.value)} required />
 				<input type='tel' name='phone' placeholder='Phone' onChange={(e) => setPhone(e.target.value)} required />
 				<input className={styles.fileUplaod} type={'file'} name='resume' onChange={(e) => setResume(e.target.files[0])} required />
-				<button className={styles.btn2} type='submit'>
+				<Captcha sitekey={process.env.V_TWO_SITE_KEY} onChange={() => setBot(!bot)} />
+				<button className={styles.btn2} type='submit' disabled={bot}>
 					Submit
 				</button>
 			</div>
@@ -213,7 +226,7 @@ const talk = () => {
 			<Nav />
 			<div className={styles.main}>
 				<div>
-					<div className={styles.msgsvg}>
+					<div className={styles.msgsvg + ' classname'}>
 						<svg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 66.4 55.8' enableBackground='new 0 0 66.4 55.8' space='preserve' width='12rem' fill='#002d62'>
 							<path
 								fill='none'

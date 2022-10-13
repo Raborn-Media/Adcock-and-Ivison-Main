@@ -27,21 +27,19 @@ const Owners = () => {
     <div className={styles.owners}>
       {attorneys.data.map((attorney) => {
         return (
-          <div key={attorney.id} className={styles.bp}>
-            <div className={styles.person}>
-            <Image src={attorney.attributes.headshot.data.attributes.url} width={200} height={200} />
-              <div style={{ color: "#fff" }}>
-                <h2>
-                  {attorney.attributes.firstName}{" "}
-                  {attorney.attributes.middleInitial}{" "}
-                  {attorney.attributes.lastName}
-                </h2>
-                <p dangerouslySetInnerHTML={{__html: attorney.attributes.quote}}></p>
-                <p style={{ textDecoration: "underline" }}>Read More</p>
-              </div>
-            </div>
-          </div>
-        );
+					<div key={attorney.id} className={styles.bp}>
+						<div className={styles.person}>
+							<img src={attorney.attributes.headshot.data.attributes.url} className={styles.headshot} />
+							<div style={{ color: 'color: #002d62;' }}>
+								<h1 style={{marginTop: '2rem'}}>
+									{attorney.attributes.firstName} {attorney.attributes.middleInitial} {attorney.attributes.lastName}
+								</h1>
+								<p dangerouslySetInnerHTML={{ __html: attorney.attributes.quote }} style={{fontSize: '1.2rem'}}></p>
+								<p style={{ textDecoration: 'underline' }}>Read More</p>
+							</div>
+						</div>
+					</div>
+				)
       })}
     </div>
   );
