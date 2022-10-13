@@ -45,11 +45,11 @@ module.exports = ({ env }) => ({
     config: {
       enableFormName: true,
       captchaProvider: {
-        name: "recaptcha",
-        config: {
-          secretKey: "6LezWnIiAAAAABTL5WCtMw0bkM-Xw13N9seAulBG",
-          minimumScore: 0.5,
-        },
+        name: "none",
+        // config: {
+        //   secretKey: "6LezWnIiAAAAABTL5WCtMw0bkM-Xw13N9seAulBG",
+        //   minimumScore: 0.5,
+        // },
       },
       notificationProviders: [
         {
