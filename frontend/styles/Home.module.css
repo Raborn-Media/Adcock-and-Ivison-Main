@@ -221,12 +221,11 @@
 }
 
 .bp {
-  width: 28rem;
-  background-color: #979794;
   border-radius: 10%;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: #002d62;
 }
 
 .person {
@@ -236,6 +235,28 @@
   flex-direction: column;
   padding: 1rem;
   text-align: center;
+  color: #002d62;
+}
+
+.headshot {
+  width: 24rem;
+  height: 24rem;
+  border-radius: 25px;
+  object-fit: cover;
+  object-position: top;
+}
+
+@media screen and (min-width: 321px) and (max-width: 375px) {
+  .headshot {
+    width: 20rem;
+    height: 20rem;
+  }
+}
+@media screen and (max-width: 320px) {
+  .headshot {
+    width: 18rem;
+    height: 18rem;
+  }
 }
 
 .help {

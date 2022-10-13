@@ -174,7 +174,7 @@ const attorneys = () => {
           <div>
         <div className={styles.coliseum}>
           <div className={styles.phoneemail}>
-            <Image src={attorney.attributes.headshot.data.attributes.url} width={200} height={200} />
+            <img src={attorney.attributes.headshot.data.attributes.url} className={styles.headshot} />
 
             <div className={styles.peclass2}>
               <div className={styles.phone}>
