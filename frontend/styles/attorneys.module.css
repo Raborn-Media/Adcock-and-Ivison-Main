@@ -2,8 +2,7 @@
   display: flex;
   margin-top: 4rem;
   justify-content: center;
-  align-items: center;
-  flex-flow: column;
+  align-items: flex-start;
 }
 
 .phoneemail {
@@ -89,4 +88,11 @@
   border-radius: 25px;
   object-fit: cover;
   object-position: top;
+}
+
+@media (max-width: 1440px) {
+  .coliseum {
+    align-items: center;
+    flex-flow: column;
+  }
 }
