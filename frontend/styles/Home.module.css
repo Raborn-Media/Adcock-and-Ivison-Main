@@ -221,6 +221,7 @@
 }
 
 .bp {
+  width: 28rem;
   border-radius: 10%;
   display: flex;
   justify-content: center;
