@@ -9,33 +9,33 @@ import { useEffect, useState } from "react";
 const URL = config.url
 
 const news = () => {
-  const [newstext, setnewstext] = useState(null)
-  const [loadnewstext, setloadnewstext] = useState(true)
-  useEffect(() => {
-    fetch(`${URL}/in-the-new`)
-      .then((res) => res.json())
-      .then((newstext) => {
-        setnewstext(newstext)
-        setloadnewstext(false)
-      })
-  }, [])
+	const [newstext, setnewstext] = useState(null)
+	const [loadnewstext, setloadnewstext] = useState(true)
+	useEffect(() => {
+		fetch(`${URL}/in-the-new`)
+		.then((res) => res.json())
+		.then((newstext) => {
+			setnewstext(newstext)
+			setloadnewstext(false)
+		})
+	}, [])
 
-  const [showDropdown, setShowDropdown] = useState(1);
+	const [showDropdown, setShowDropdown] = useState(1);
 
-  function displayDropdown(id) {
-    if (showDropdown == id) {
-      setShowDropdown(0);
-    } else {
-      setShowDropdown(id);
-    }
-  }
+	function displayDropdown(id) {
+		if (showDropdown == id) {
+		setShowDropdown(0);
+		} else {
+		setShowDropdown(id);
+		}
+	}
 
-  if(loadnewstext){
-    return(
-      <div>loading...</div>
-    )
-  }
-  return (
+	if(loadnewstext){
+		return(
+		<div>loading...</div>
+		)
+	}
+	return (
 		<>
 			<NewsHead />
 			<Nav />

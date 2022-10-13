@@ -2,7 +2,8 @@
   display: flex;
   margin-top: 4rem;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
+  flex-flow: column;
 }
 
 .phoneemail {
