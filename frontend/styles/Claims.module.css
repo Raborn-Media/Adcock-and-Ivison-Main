@@ -93,7 +93,6 @@
   margin-top: 2rem;
   cursor: pointer;
   position: relative;
-  box-sizing: content-box;
 }
 
 .attorneybar p {
@@ -130,59 +129,3 @@
   width: 90%;
 }
 
-@media (max-width: 1024px) {
-  .attorneybar {
-    background-color: #979794;
-    box-sizing: content-box;
-    width: 60%;
-    display: flex;
-    color: #fff;
-    font-size: 2rem;
-    border-top-left-radius: 50px;
-    border-bottom-left-radius: 50px;
-    padding: 1rem;
-    margin-top: 6rem;
-    position: relative;
-  }
-}
-
-@media (max-width: 800px) {
-  .attorneybar {
-    width: 80%;
-
-  }
-}
-
-@media (max-width: 600px) {
-  .attorneybar {
-    width: 90%;
-  }
-
-  
-  .newsParaTxt {
-    width: 70%;
-  }
-}
-
-@media (max-width: 450px) {
-  .attorneybar {
-    width: 150%;
-    margin-right: -50px;
-  }
-}
-
-@media (max-width: 325px) {
-  .attorneybar {
-    width: 200%;
-    margin-right: 20px;
-  }
-
-  .sec1 {
-    display: column;
-  }
-  
-  .sec1Txt {
-    width: 80%;
-    margin: 0
-  }
-}

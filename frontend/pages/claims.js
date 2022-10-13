@@ -154,7 +154,7 @@ const claims = () => {
                     {showDropdown == drop.id ? (
                       <p className={styles.dropStatus}>CLOSE</p>
                     ) : (
-                      <p style={{ display: 'flex' }} className={styles.dropStatus}>OPEN</p>
+                      <p className={styles.dropStatus}>OPEN</p>
                     )}
                   </div>
                 </div>
