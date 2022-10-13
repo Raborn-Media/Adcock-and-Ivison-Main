@@ -89,3 +89,10 @@
   object-fit: cover;
   object-position: top;
 }
+
+@media (max-width: 1440px) {
+  .coliseum {
+    align-items: center;
+    flex-flow: column;
+  }
+}
