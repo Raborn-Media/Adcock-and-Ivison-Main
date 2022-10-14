@@ -2,7 +2,9 @@
   display: flex;
   margin-top: 4rem;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
+  position: relative;
+
 }
 
 .phoneemail {
@@ -90,9 +92,65 @@
   object-position: top;
 }
 
+/* Media Queries below. Need to move margin back every break point. Will need to update Headshots with flexbox */
+
 @media (max-width: 1440px) {
   .coliseum {
     align-items: center;
     flex-flow: column;
+    justify-content: center;
+  }
+
+  .phoneemail {
+    left: 0;
+  }
+
+  .spacer {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .headshot {
+    margin-left: -25%;
+  }
+}
+
+
+@media (max-width: 1024px) {
+  .headshot {
+    margin-left: -40%;
+  }
+
+  .YApara {
+    width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  .headshot {
+    margin-left: -50%;
+  }
+
+  .phoneemail {
+    margin-left: -15%;
+  }
+
+  .YApara {
+    width: 90%;
+  }
+}
+
+
+@media (max-width: 530px) {
+  .headshot {
+    margin-left: -80%;
+  }
+
+  .phoneemail {
+    margin-left: -35%;
+  }
+
+  .YApara {
+    width: 90%;
   }
 }

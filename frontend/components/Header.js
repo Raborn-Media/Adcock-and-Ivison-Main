@@ -17,6 +17,10 @@ const Header = () => {
 		setHamburgerOpen(!hamburgerOpen)
 	}
 
+	const closeHamburger = () => {
+		setHamburgerOpen(false)
+	}
+
 	useEffect(() => {
 		window.addEventListener("scroll", () => {
 			if (window.pageYOffset > 300) {
@@ -111,7 +115,7 @@ const Header = () => {
 					<li>
 						<Link href='/talk'>TALK TO US</Link>
 					</li>
-
+{/* 
 					<li style={{ position: 'relative', cursor: 'pointer' }} onClick={() => setShowDropNav(!showDropNav)}>
 						<svg version='1.1' id='Isolation_Mode' xmlns='http://www.w3.org/2000/svg' xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 397.6 302.4' enableBackground='new 0 0 397.6 302.4' space='preserve' width='1.5rem' fill='#fff' style={{ marginBottom: '-0.2rem', marginRight: '0.2rem' }}>
 							<polygon points='207.8,264.3 208,264.5 351.9,120.6 306,74.7 207.8,173 109.5,74.7 63.6,120.6 207.6,264.5 ' />
@@ -136,11 +140,11 @@ const Header = () => {
 								</Link>
 							</ul>
 						</div>
-					</li>
+					</li> */}
 						
 					</ul>
 						<div className="hamburger" onClick={toggleHamburger}>
-							<HamburgerIcon isOpen={hamburgerOpen}/>
+							<HamburgerIcon isOpen={hamburgerOpen} />
 						</div>
 				</div>
 
