@@ -129,3 +129,19 @@
   width: 90%;
 }
 
+@media (max-width: 1024px) {
+  .sec1 {
+    display: column;
+    flex-direction: column;
+  }
+  .attorneybar {
+    width: 80%;
+    
+  }
+
+  .sec1Txt {
+    width: 70%;
+    text-align: left;
+    margin-left: 0;
+  }
+}

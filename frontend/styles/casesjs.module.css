@@ -1,10 +1,10 @@
 .cases {
-  width: 40%;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-direction: column;
-  text-align: left;
+   width: 10%;
+   display: flex;
+   justify-content: center;
+   align-items: flex-start;
+   flex-direction: column;
+   text-align: left;
 }
 
 .newcases {
@@ -110,4 +110,20 @@
    cursor: pointer;
    color: #002d62;
    text-decoration: underline;
+}
+
+@media (min-width: 1440px) {
+   .cases {
+      width: 20%;
+   }
+}
+
+@media (max-width: 1024px) {
+   .cases {
+      width: 40%;
+   }
+}
+
+.newcases {
+   margin-left: -25%;
 }
