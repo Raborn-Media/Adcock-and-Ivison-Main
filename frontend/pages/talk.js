@@ -237,7 +237,7 @@ const FormTwo = () => {
 				frameBorder='0'
 				style={{
 					minWidth: '100%',
-					maxHeight: '600px',
+					maxHeight: '1000px',
 					border: 'none',
 				}}
 				scrolling='no'></iframe>
