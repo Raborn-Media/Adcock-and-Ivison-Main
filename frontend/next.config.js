@@ -19,6 +19,7 @@ const nextConfig = {
     REACT_APP_SITE_KEY: process.env.REACT_APP_SITE_KEY,
     V_TWO_SITE_KEY: process.env.V_TWO_SITE_KEY,
     V_TWO_SECRET_KEY: process.env.V_TWO_SECRET_KEY,
+    SIB_API_KEY: process.env.SIB_API_KEY,
   },
 };
 

@@ -6,7 +6,7 @@ import { config } from '../components/Constants'
 import { useEffect, useState } from 'react'
 {/*import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'*/ }
 import Captcha from 'react-google-recaptcha'
-import axios from 'axios'
+import Script from 'next/script'
 
 const URL = config.url
 
@@ -125,84 +125,124 @@ const FormOne = () => {
 }
 
 const FormTwo = () => {
-	const [fName, setFName] = useState('')
-	const [lName, setLName] = useState('')
-	const [email, setEmail] = useState('')
-	const [phone, setPhone] = useState('')
-	const [resume, setResume] = useState('')
-	const [message, setMessage] = useState('')
+	// const [fName, setFName] = useState('')
+	// const [lName, setLName] = useState('')
+	// const [email, setEmail] = useState('')
+	// const [phone, setPhone] = useState('')
+	// const [resume, setResume] = useState('')
+	// const [message, setMessage] = useState('')
 
-	const [submitted, setSubmitted] = useState(false)
+	// const [submitted, setSubmitted] = useState(false)
 
-	const [bot, setBot] = useState(true)
+	// const [bot, setBot] = useState(true)
 
-	// const { executeRecaptcha2 } = useGoogleReCaptcha()
+	// // const { executeRecaptcha2 } = useGoogleReCaptcha()
 
-	// const handleSubmitForm2 = useCallback(
-	// 	(e) => {
-	// 		e.preventDefault()
-	// 		if (!executeRecaptcha2) {
-	// 			console.log('Execute recaptcha not yet available')
-	// 			return
-	// 		}
-	// 		executeRecaptcha2('enquiryFormSubmit').then((gReCaptchaToken) => {
-	// 			console.log(gReCaptchaToken, 'response Google reCaptcha server')
-	// 			submitFormTwo(gReCaptchaToken)
+	// // const handleSubmitForm2 = useCallback(
+	// // 	(e) => {
+	// // 		e.preventDefault()
+	// // 		if (!executeRecaptcha2) {
+	// // 			console.log('Execute recaptcha not yet available')
+	// // 			return
+	// // 		}
+	// // 		executeRecaptcha2('enquiryFormSubmit').then((gReCaptchaToken) => {
+	// // 			console.log(gReCaptchaToken, 'response Google reCaptcha server')
+	// // 			submitFormTwo(gReCaptchaToken)
+	// // 		})
+	// // 	},
+	// // 	[executeRecaptcha2]
+	// // )
+
+
+	// const submitFormTwo = async () => {
+
+	// 	const fileToBase64 = (filename, filepath) => {
+	// 		return new Promise((resolve) => {
+	// 			var file = new File([filename], filepath)
+	// 			var reader = new FileReader()
+	// 			// Read file content on file loaded event
+	// 			reader.onload = function (event) {
+	// 				resolve(event.target.result)
+	// 			}
+
+	// 			// Convert data to base64
+	// 			reader.readAsDataURL(file)
 	// 		})
-	// 	},
-	// 	[executeRecaptcha2]
+	// 	}
+
+	// 	fileToBase64(resume.name, resume.path).then((result) => {
+	// 		setResume(result)
+	// 	})
+
+	// 	let form = {
+	// 		"Submission Info": "<br /><br />",
+	// 		"First Name": `${fName}<br \/>`,
+	// 		"Last Name": `${lName}<br \/>`,
+	// 		"Email": `${email}<br \/>`,
+	// 		"Phone": `${phone}<br \/>`,
+	// 		"Message": `${message}<br \/>`
+	// 	}
+
+
+	// 	fetch(`${URL}/ezforms/submit`, {
+	// 		method: 'POST',
+	// 		headers: {
+	// 			'Content-Type': 'application/json',
+	// 		},
+	// 		body: JSON.stringify({ formData: form, formName: 'Careers Form', file: resume }),
+	// 		formData: form,
+	// 	})
+	// 		.then((response) => response.json())
+	// 		.then((data) => console.log(data))
+	// 	setSubmitted(true)
+	// }
+
+	// if (submitted) {
+	// 	return (
+	// 		<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+	// 			<h3>Thank you! We'll be in touch shortly.</h3>
+	// 		</div>
+	// 	)
+	// }
+
+	// return (
+	// 	<form onSubmit={submitFormTwo} method='POST'>
+	// 		<div className={styles.formLeft}>
+	// 			<input type='text' name='fName' placeholder='First Name' onChange={(e) => setFName(e.target.value)} required />
+	// 			<input type='email' name='email' placeholder='Email' onChange={(e) => setEmail(e.target.value)} required />
+	// 			<textarea placeholder='Message/Explanation (optional)' onChange={(e) => setMessage(e.target.value)}></textarea>
+	// 		</div>
+	// 		<div className={styles.formRight}>
+	// 			<input type='text' name='lName' placeholder='Last Name' onChange={(e) => setLName(e.target.value)} required />
+	// 			<input type='tel' name='phone' placeholder='Phone' onChange={(e) => setPhone(e.target.value)} required />
+	// 			<input className={styles.fileUplaod} type={'file'} name='resume' onChange={(e) => setResume(e.target.files[0])} required />
+	// 			<Captcha sitekey={process.env.V_TWO_SITE_KEY} onChange={() => setBot(!bot)} />
+	// 			<button className={styles.btn2} type='submit' disabled={bot}>
+	// 				Submit
+	// 			</button>
+	// 		</div>
+	// 	</form>
 	// )
 
-	const submitFormTwo = async () => {
-
-		let form = {
-			"Submission Info": "<br /><br />",
-			"First Name": `${fName}<br \/>`,
-			"Last Name": `${lName}<br \/>`,
-			"Email": `${email}<br \/>`,
-			"Phone": `${phone}<br \/>`,
-			"Message": `${message}<br \/>`,
-			"Resume": `${resume}`
-		}
-
-		fetch(`${URL}/ezforms/submit`, {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify({ formData: form, formName: 'Careers Form' }),
-			formData: form,
-		})
-			.then((response) => response.json())
-			.then((data) => console.log(data))
-		setSubmitted(true)
-	}
-
-	if (submitted) {
-		return (
-			<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-				<h3>Thank you! We'll be in touch shortly.</h3>
-			</div>
-		)
-	}
-
 	return (
-		<form onSubmit={submitFormTwo} method='POST'>
-			<div className={styles.formLeft}>
-				<input type='text' name='fName' placeholder='First Name' onChange={(e) => setFName(e.target.value)} required />
-				<input type='email' name='email' placeholder='Email' onChange={(e) => setEmail(e.target.value)} required />
-				<textarea placeholder='Message/Explanation (optional)' onChange={(e) => setMessage(e.target.value)}></textarea>
-			</div>
-			<div className={styles.formRight}>
-				<input type='text' name='lName' placeholder='Last Name' onChange={(e) => setLName(e.target.value)} required />
-				<input type='tel' name='phone' placeholder='Phone' onChange={(e) => setPhone(e.target.value)} required />
-				<input className={styles.fileUplaod} type={'file'} name='resume' onChange={(e) => setResume(e.target.files[0])} required />
-				<Captcha sitekey={process.env.V_TWO_SITE_KEY} onChange={() => setBot(!bot)} />
-				<button className={styles.btn2} type='submit' disabled={bot}>
-					Submit
-				</button>
-			</div>
-		</form>
+		<>
+			<iframe
+				id='JotFormIFrame-222894533982064'
+				title='Careers Form'
+				onLoad={window.parent.scrollTo(0, 0)}
+				allowtransparency='true'
+				allowFullScreen={false}
+				allow='geolocation; microphone; camera'
+				src='https://form.jotform.com/222894533982064'
+				frameBorder='0'
+				style={{
+					minWidth: '100%',
+					maxHeight: '600px',
+					border: 'none',
+				}}
+				scrolling='no'></iframe>
+			<Script type='text/javascript' src='/form-script.js' />
+		</>
 	)
 }
 
