@@ -4,7 +4,8 @@
   "info": {
     "singularName": "insurance-drop",
     "pluralName": "insurance-drops",
-    "displayName": "Insurance Dropdowns"
+    "displayName": "Insurance Dropdowns",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -18,6 +19,13 @@
     "content": {
       "type": "richtext",
       "required": true
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }

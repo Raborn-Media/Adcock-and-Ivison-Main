@@ -20,13 +20,16 @@
   flex-direction: column;
 }
 
-.phone {
+.phone  {
   display: flex;
+  padding: 5px;
   color: #002d62;
 }
 
+
 .email {
   display: flex;
+  padding: 5px;
   color: #002d62;
 }
 
@@ -39,7 +42,7 @@
 }
 
 .phone2 {
-  margin-left: 0.5rem;
+  margin: 5px 8px;
 }
 
 .email2 {

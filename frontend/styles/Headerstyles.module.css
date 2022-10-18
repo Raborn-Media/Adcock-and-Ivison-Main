@@ -84,6 +84,10 @@
   padding-left: 6rem;
 }
 
+.toprightinfo p {
+  margin-left: 5px;
+}
+
 .navDropdown {
   display: flex;
   flex-direction: column;

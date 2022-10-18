@@ -23,7 +23,7 @@ const injury = () => {
   const [injurydrops, setinjurydrops] = useState(null);
   const [loadinjurydrops, setloadinjurydrops] = useState(true);
   useEffect(() => {
-    fetch(`${URL}/injury-drops?sort=id`)
+    fetch(`${URL}/injury-drops?sort=id&populate=*`)
       .then((res) => res.json())
       .then((injurydrops) => {
         setinjurydrops(injurydrops);
@@ -155,6 +155,7 @@ const injury = () => {
                 </div>
                 {showDropdown == drop.id && (
                   <div className={styles.dropBody}>
+                    <img src={drop.attributes.image.data.attributes.url} alt="Claims" className={styles.dropImg} />
                     <p dangerouslySetInnerHTML={{__html: drop.attributes.content}}></p>
                   </div>
                 )}
