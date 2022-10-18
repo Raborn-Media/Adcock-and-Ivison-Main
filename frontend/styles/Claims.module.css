@@ -122,7 +122,8 @@
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
   object-fit: cover;
-  height: 24rem;
+  height: 15rem;
+  margin: 1.5em 0;
 }
 
 .dropBody p {
@@ -145,3 +146,4 @@
     margin-left: 0;
   }
 }
+

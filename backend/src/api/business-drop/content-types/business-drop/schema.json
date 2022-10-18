@@ -4,7 +4,8 @@
   "info": {
     "singularName": "business-drop",
     "pluralName": "business-drops",
-    "displayName": "Business Dropdowns"
+    "displayName": "Business Dropdowns",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -18,6 +19,13 @@
     "content": {
       "type": "richtext",
       "required": true
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }

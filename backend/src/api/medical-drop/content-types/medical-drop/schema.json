@@ -4,7 +4,8 @@
   "info": {
     "singularName": "medical-drop",
     "pluralName": "medical-drops",
-    "displayName": "Medical Dropdowns"
+    "displayName": "Medical Dropdowns",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -18,6 +19,13 @@
     "content": {
       "type": "richtext",
       "required": true
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }

@@ -23,7 +23,7 @@ const insurance = () => {
   const [insurancedrops, setinsurancedrops] = useState(null);
   const [loadinsurancedrops, setloadinsurancedrops] = useState(true);
   useEffect(() => {
-    fetch(`${URL}/insurance-drops?sort=id`)
+    fetch(`${URL}/insurance-drops?sort=id&populate=*`)
       .then((res) => res.json())
       .then((insurancedrops) => {
         setinsurancedrops(insurancedrops);
@@ -139,6 +139,7 @@ const insurance = () => {
                 </div>
                 {showDropdown == drop.id && (
                   <div className={styles.dropBody}>
+                    <img src={drop.attributes.image.data.attributes.url} alt="Claims" className={styles.dropImg} />
                     <p dangerouslySetInnerHTML={{__html: drop.attributes.content}}></p>
                   </div>
                 )}

@@ -4,7 +4,7 @@ import ClaimsHead from "../components/ClaimsHead";
 import styles from "../styles/Claims.module.css";
 import { config } from "../components/Constants";
 import { useEffect, useState } from "react";
-import ReactMarkdown from "react-markdown";
+
 
 const URL = config.url;
 
@@ -25,7 +25,7 @@ const claims = () => {
   const [claimdrops, setclaimdrops] = useState(null);
   const [loadclaimdrops, setloadclaimdrops] = useState(true);
   useEffect(() => {
-    fetch(`${URL}/claim-drops?sort=id`)
+    fetch(`${URL}/claim-drops?sort=id&populate=*`)
       .then((res) => res.json())
       .then((claimdrops) => {
         setclaimdrops(claimdrops);
@@ -160,6 +160,7 @@ const claims = () => {
                 </div>
                 {showDropdown == drop.id && (
                   <div className={styles.dropBody}>
+                    <img src={drop.attributes.image.data.attributes.url} alt="Claims" className={styles.dropImg} />
                     <p dangerouslySetInnerHTML={{__html: drop.attributes.content}}></p>
                   </div>
                 )}

@@ -23,7 +23,7 @@ const business = () => {
   const [businessdrops, setbusinessdrops] = useState(null);
   const [loadbusinessdrops, setloadbusinessdrops] = useState(true);
   useEffect(() => {
-    fetch(`${URL}/business-drops?sort=id`)
+    fetch(`${URL}/business-drops?sort=id&populate=*`)
       .then((res) => res.json())
       .then((businessdrops) => {
         setbusinessdrops(businessdrops);
@@ -130,6 +130,7 @@ const business = () => {
                 </div>
                 {showDropdown == drop.id && (
                   <div className={styles.dropBody}>
+                    <img src={drop.attributes.image.data.attributes.url} alt="Business" className={styles.dropImg} />
                     <p dangerouslySetInnerHTML={{__html: drop.attributes.content}}></p>
                   </div>
                 )}
