@@ -97,6 +97,12 @@
 
 /* Media Queries below. Need to move margin back every break point. Will need to update Headshots with flexbox */
 
+@media (min-width: 1400px) and (max-width: 2100px) {
+  .headshot {
+    margin-left: -25%;
+  }
+}
+
 @media (max-width: 1440px) {
   .coliseum {
     align-items: center;
