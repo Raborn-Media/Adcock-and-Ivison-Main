@@ -20,10 +20,34 @@ module.exports = ({ env }) => ({
       editor: {
         fontColor: {
           colors: [
-            { color: "rgb(0,45,98)", label: "Blue" },
+            { 
+              color: "rgb(0,45,98)", 
+              label: "Blue"
+            },
+            {
+              color: 'hsl(0, 0%, 0%)',
+              label: 'Black'
+            },
+            {
+              color: 'hsl(0, 0%, 30%)',
+              label: 'Dim grey'
+            },
+            {
+              color: 'hsl(0, 0%, 60%)',
+              label: 'Grey'
+            },
+            {
+              color: 'hsl(0, 0%, 90%)',
+              label: 'Light grey'
+            },
+            {
+              color: 'hsl(0, 0%, 100%)',
+              label: 'White',
+              hasBorder: true
+            },
+
           ],
         },
-        uiColor: "rgb(0,45,98)",
         fontFamily: {
           options: [
             "Poppins"
@@ -32,20 +56,14 @@ module.exports = ({ env }) => ({
         },
         toolbar: {
           items: [
-            'paragraph',
-            'heading1',
-            'heading2',
-            '|',
             'bold',
             'italic',
             'fontColor',
             'fontFamily',
             'underline',
             'fontSize',
-            'removeFormat',
             '|',
             'bulletedList',
-            'todoList',
             'numberedList',
             '|',
             'alignment',
@@ -58,16 +76,7 @@ module.exports = ({ env }) => ({
             'blockQuote',
             'mediaEmbed',
             'link',
-            'highlight',
             '|',
-            'htmlEmbed',
-            'sourceEditing',
-            'code',
-            'codeBlock',
-            '|',
-            'subscript',
-            'superscript',
-            'strikethrough',
             'specialCharacters',
             '|',
             'heading',
@@ -75,6 +84,20 @@ module.exports = ({ env }) => ({
             'undo',
             'redo'
           ]
+        },
+        fontSize: {
+          options: [
+              9,
+              11,
+              13,
+              16,
+              17,
+              19,
+              21,
+              27,
+              35,
+          ],
+          supportAllValues: false
         },
       },
     },
