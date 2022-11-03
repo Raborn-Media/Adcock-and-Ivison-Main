@@ -14,7 +14,71 @@ module.exports = ({ env }) => ({
       },
     },
   },
-  ckeditor: true,
+  ckeditor: {
+    enabled: true,
+    config: {
+      editor: {
+        fontColor: {
+          colors: [
+            { color: "rgb(0,45,98)", label: "Blue" },
+          ],
+        },
+        uiColor: "rgb(0,45,98)",
+        fontFamily: {
+          options: [
+            "Poppins"
+          ],
+          supportAllValues: false
+        },
+        toolbar: {
+          items: [
+            'paragraph',
+            'heading1',
+            'heading2',
+            '|',
+            'bold',
+            'italic',
+            'fontColor',
+            'fontFamily',
+            'underline',
+            'fontSize',
+            'removeFormat',
+            '|',
+            'bulletedList',
+            'todoList',
+            'numberedList',
+            '|',
+            'alignment',
+            'outdent',
+            'indent',
+            'horizontalLine',
+            '|',
+            'StrapiMediaLib',
+            'insertTable',
+            'blockQuote',
+            'mediaEmbed',
+            'link',
+            'highlight',
+            '|',
+            'htmlEmbed',
+            'sourceEditing',
+            'code',
+            'codeBlock',
+            '|',
+            'subscript',
+            'superscript',
+            'strikethrough',
+            'specialCharacters',
+            '|',
+            'heading',
+            "fullScreen",
+            'undo',
+            'redo'
+          ]
+        },
+      },
+    },
+  },
   "generate-data": {
     enabled: true,
   },

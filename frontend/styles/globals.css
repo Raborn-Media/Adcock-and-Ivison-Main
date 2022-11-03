@@ -4,6 +4,7 @@ body {
   overflow-x: hidden;
   scroll-behavior: smooth;
   font-family: "Poppins";
+
 }
 
 a {
@@ -22,4 +23,9 @@ body {
 
 h1, p {
   margin: 0;
+}
+
+.ck.ck-editor__editable > .ck-placeholder::before {
+  color: "rgb(0,45,98)";
+  font-family: Poppins;
 }
