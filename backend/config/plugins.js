@@ -87,15 +87,8 @@ module.exports = ({ env }) => ({
         },
         fontSize: {
           options: [
-              9,
-              11,
-              13,
-              16,
-              17,
-              19,
-              21,
-              27,
-              35,
+            16,
+            32
           ],
           supportAllValues: false
         },
