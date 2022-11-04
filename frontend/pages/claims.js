@@ -149,7 +149,7 @@ const claims = () => {
                       />
                     </svg>
                     <div style={{ marginLeft: "0.8rem" }}>
-                      <p>{drop.attributes.title}</p>
+                      <span>{drop.attributes.title}</span>
                     </div>
                     {showDropdown == drop.id ? (
                       <p className={styles.dropStatus}>CLOSE</p>
