@@ -367,7 +367,7 @@ const talk = () => {
 							</g>
 						</svg>
 						<div style={{ marginLeft: '0.8rem' }}>
-							<p>Contact Us</p>
+							<span>Contact Us</span>
 						</div>
 					</div>
 				</div>
@@ -400,7 +400,7 @@ const talk = () => {
 							</g>
 						</svg>
 						<div style={{ marginLeft: '0.8rem' }}>
-							<p>Careers Submission</p>
+							<span>Careers Submission</span>
 						</div>
 					</div>
 				</div>

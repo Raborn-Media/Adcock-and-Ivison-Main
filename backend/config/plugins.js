@@ -23,29 +23,7 @@ module.exports = ({ env }) => ({
             { 
               color: "rgb(0,45,98)", 
               label: "Blue"
-            },
-            {
-              color: 'hsl(0, 0%, 0%)',
-              label: 'Black'
-            },
-            {
-              color: 'hsl(0, 0%, 30%)',
-              label: 'Dim grey'
-            },
-            {
-              color: 'hsl(0, 0%, 60%)',
-              label: 'Grey'
-            },
-            {
-              color: 'hsl(0, 0%, 90%)',
-              label: 'Light grey'
-            },
-            {
-              color: 'hsl(0, 0%, 100%)',
-              label: 'White',
-              hasBorder: true
-            },
-
+            }
           ],
         },
         fontFamily: {
@@ -72,15 +50,12 @@ module.exports = ({ env }) => ({
             'horizontalLine',
             '|',
             'StrapiMediaLib',
-            'insertTable',
             'blockQuote',
             'mediaEmbed',
             'link',
             '|',
             'specialCharacters',
             '|',
-            'heading',
-            "fullScreen",
             'undo',
             'redo'
           ]

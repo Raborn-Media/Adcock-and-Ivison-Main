@@ -80,7 +80,7 @@ const news = () => {
 						</g>
 					</svg>
 					<div style={{ marginLeft: '0.8rem' }}>
-						<p>News Article</p>
+						<span>News Article</span>
 					</div>
 					{showDropdown == 1 ? <p className={styles.dropStatus}>CLOSE</p> : <p className={styles.dropStatus}>OPEN</p>}
 				</div>
@@ -114,7 +114,7 @@ const news = () => {
 						/>
 					</svg>
 					<div style={{ marginLeft: '0.8rem' }}>
-						<p>Case Summaries & Judgements</p>
+						<span>Case Summaries & Judgements</span>
 					</div>
 					{showDropdown == 2 ? <p className={styles.dropStatus}>CLOSE</p> : <p className={styles.dropStatus}>OPEN</p>}
 				</div>

@@ -165,7 +165,7 @@ const attorneys = () => {
             />
           </svg>
           <div style={{ marginLeft: "0.8rem" }}>
-            <p>Attorneys</p>
+            <span>Attorneys</span>
           </div>
         </div>
       </div>
@@ -311,7 +311,7 @@ const attorneys = () => {
             </g>
           </svg>
           <div style={{ marginLeft: "0.8rem" }}>
-            <p>Court Admissions</p>
+            <span>Court Admissions</span>
           </div>
         </div>
       </div>

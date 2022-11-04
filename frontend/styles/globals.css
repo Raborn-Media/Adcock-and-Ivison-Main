@@ -29,3 +29,12 @@ h1, p {
   color: "rgb(0,45,98)";
   font-family: Poppins;
 }
+
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 32px !important;
+}
+
+p {
+  font-size: 16px !important;
+}
