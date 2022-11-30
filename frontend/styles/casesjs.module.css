@@ -110,6 +110,7 @@
    cursor: pointer;
    color: #002d62;
    text-decoration: underline;
+   width: 5%;
 }
 
 @media (min-width: 1440px) {
