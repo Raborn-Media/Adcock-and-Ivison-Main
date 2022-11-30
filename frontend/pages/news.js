@@ -9,33 +9,34 @@ import { useEffect, useState } from "react";
 const URL = config.url
 
 const news = () => {
-  const [newstext, setnewstext] = useState(null)
-  const [loadnewstext, setloadnewstext] = useState(true)
-  useEffect(() => {
-    fetch(`${URL}/in-the-new`)
-      .then((res) => res.json())
-      .then((newstext) => {
-        setnewstext(newstext)
-        setloadnewstext(false)
-      })
-  }, [])
+	const [newstext, setnewstext] = useState(null)
+	const [loadnewstext, setloadnewstext] = useState(true)
+	useEffect(() => {
+		fetch(`${URL}/in-the-new`)
+		.then((res) => res.json())
+		.then((newstext) => {
+			setnewstext(newstext)
+			setloadnewstext(false)
+		})
+	}, [])
 
-  const [showDropdown, setShowDropdown] = useState(1);
+	const [showDropdown, setShowDropdown] = useState(1);
 
-  function displayDropdown(id) {
-    if (showDropdown == id) {
-      setShowDropdown(0);
-    } else {
-      setShowDropdown(id);
-    }
-  }
+	function displayDropdown(id) {
+		if (showDropdown == id) {
+		setShowDropdown(0);
+		} else {
+		setShowDropdown(id);
+		}
+	}
 
-  if(loadnewstext){
-    return(
-      <div>loading...</div>
-    )
-  }
-  return (
+	if(loadnewstext){
+		return(
+		<div>loading...</div>
+		)
+	}
+
+	return (
 		<>
 			<NewsHead />
 			<Nav />
@@ -106,11 +107,11 @@ const news = () => {
 							strokeWidth='0.4613'
 							strokeMiterlimit='10'
 							d='M102.7,70c0,11.6,11.9,21,26.7,21c14.7,0,26.7-9.4,26.7-21
-	c-0.8,0-1.5,0-2.3,0l-19.4-37.4c2-1.4,3.3-3.7,3.3-6.3c0-4.2-3.4-7.6-7.6-7.6l-42.2-7.2c-0.7-0.2-1.4-0.4-2.1-0.4
-	c-0.7,0-1.4,0.1-2.1,0.4l-42.8,7.2c-4.2,0-7.6,3.4-7.6,7.6c0,3.5,2.4,6.5,5.7,7.3L15.9,70c-0.5,0-1,0-1.5,0c0,11.6,11.9,21,26.7,21
-	c14.7,0,26.7-9.4,26.7-21c-0.8,0-1.5,0-2.3,0L46.7,33.9h32.1l-2.7,70.9c0,0-30.5,4.7-30.5,10.6S36.4,126,42.2,126h86.6
-	c5.8,0-3.5-4.7-3.5-10.6s-30.1-10.6-30.1-10.6l-2.6-70.9h34.3l-23,36.1C103.7,70,103.2,70,102.7,70z M20.3,70l22.5-35.4L61.1,70
-	C47.6,70,34.1,70,20.3,70z M131.1,34.7L149.4,70c-13.6,0-27,0-40.8,0L131.1,34.7z'
+							c-0.8,0-1.5,0-2.3,0l-19.4-37.4c2-1.4,3.3-3.7,3.3-6.3c0-4.2-3.4-7.6-7.6-7.6l-42.2-7.2c-0.7-0.2-1.4-0.4-2.1-0.4
+							c-0.7,0-1.4,0.1-2.1,0.4l-42.8,7.2c-4.2,0-7.6,3.4-7.6,7.6c0,3.5,2.4,6.5,5.7,7.3L15.9,70c-0.5,0-1,0-1.5,0c0,11.6,11.9,21,26.7,21
+							c14.7,0,26.7-9.4,26.7-21c-0.8,0-1.5,0-2.3,0L46.7,33.9h32.1l-2.7,70.9c0,0-30.5,4.7-30.5,10.6S36.4,126,42.2,126h86.6
+							c5.8,0-3.5-4.7-3.5-10.6s-30.1-10.6-30.1-10.6l-2.6-70.9h34.3l-23,36.1C103.7,70,103.2,70,102.7,70z M20.3,70l22.5-35.4L61.1,70
+							C47.6,70,34.1,70,20.3,70z M131.1,34.7L149.4,70c-13.6,0-27,0-40.8,0L131.1,34.7z'
 						/>
 					</svg>
 					<div style={{ marginLeft: '0.8rem' }}>

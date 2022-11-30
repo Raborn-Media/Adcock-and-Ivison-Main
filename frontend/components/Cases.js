@@ -194,7 +194,7 @@ const Cases = () => {
               <div className={styles.caseInfoMain}>
                 <div className={styles.controls}>
                   <img src="/circle_arrow.svg" onClick={prevNewCase} />
-                  <h1>{caseSum.attributes.title}</h1>
+                  <h3 className={styles.title}>{caseSum.attributes.title}</h3>
                   <img src="/circle_arrow.svg" onClick={nextNewCase} />
                   <h4 className={styles.close} onClick={() => setCaseNum(0)}>
                     CLOSE ARTICLE
