@@ -88,6 +88,11 @@
    position: relative;
 }
 
+.title {
+   width: 30%;
+   font-size: 12px;
+}
+
 .controls img {
    width: 3rem;
    height: 3rem;
@@ -102,6 +107,7 @@
    color: #002d62;
    margin-left: 2rem;
    margin-right: 2rem;
+   width: 50%;
 }
 
 .close {
