@@ -4,14 +4,18 @@ import styles from "../styles/Headerstyles.module.css";
 import { useState, useEffect } from "react";
 import Head from "next/head";
 import HamburgerIcon from '../components/Hamburger'
+import { useRouter } from 'next/router'
 
 const Header = () => {
-	const [showDropNav, setShowDropNav] = useState(false);
 
+	const router = useRouter()
+
+	const [showDropNav, setShowDropNav] = useState(false);
 	const [headClass, setHeadClass] = useState(styles.header);
 	const [navClass, setNavClass] = useState(styles.navList);
-
 	const [hamburgerOpen, setHamburgerOpen] = useState(false)
+	const [styling, setStyling] = useState("")
+
 
 	const toggleHamburger = () => {
 		setHamburgerOpen(!hamburgerOpen)
@@ -32,6 +36,12 @@ const Header = () => {
 			}
 		});
 	} , []);
+
+	useEffect(() => {
+		if (router.pathname == "/attorneys") {
+			setStyling("none")
+		}
+	})
 
     return (
 		<>

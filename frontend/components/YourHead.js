@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../styles/Home.module.css";
+import styles from "../styles/attorneyHeader.module.css";
 import { config } from "../components/Constants";
 import { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
@@ -71,6 +71,18 @@ const YourHead = () => {
           />
         </svg>
       </div>
+
+      <style>{`
+					.back {
+            box-shadow: none;
+          }
+          
+          .back::after {
+            background: none;
+          
+          }
+          
+				`}</style>
     </div>
   );
 };
