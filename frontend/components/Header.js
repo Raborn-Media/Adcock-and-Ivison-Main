@@ -2,7 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from "../styles/Headerstyles.module.css";
 import { useState, useEffect } from "react";
-import Head from "next/head";
 import HamburgerIcon from '../components/Hamburger'
 import { useRouter } from 'next/router'
 
@@ -45,11 +44,6 @@ const Header = () => {
 
     return (
 		<>
-			<Head>
-				<link rel='preconnect' href='https://fonts.googleapis.com' />
-				<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
-				<link href='https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap' rel='stylesheet' />
-			</Head>
 			<div className={headClass}>
 				<div className={styles.image}>
 					<Link href={'/'}>
